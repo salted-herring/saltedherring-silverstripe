@@ -1,0 +1,12 @@
+/silverstripe-cache/
+/.env
+/vendor/
+/themes/simple/
+/resources/
+/public/resources/
+assets/*
+.buildpath
+.project
+.settings
+.idea
+.DS_Store
