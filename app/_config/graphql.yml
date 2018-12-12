@@ -1,0 +1,21 @@
+---
+Name: graphql
+---
+SilverStripe\GraphQL\Controller:
+  schema:
+    types:
+      Image: 'App\Web\GraphQL\Types\ImageTypeCreator'
+      SaltedCroppableImage: 'App\Web\GraphQL\Types\SaltedCroppableImageTypeCreator'
+      Page: 'App\Web\GraphQL\Types\PageTypeCreator'
+    queries:
+      readImage: 'App\Web\GraphQL\Queries\ReadImageQueryCreator'
+      readSaltedCroppableImage: 'App\Web\GraphQL\Queries\ReadSaltedCroppableImageQueryCreator'
+      readPage: 'App\Web\GraphQL\Queries\ReadPageQueryCreator'
+    scaffolding:
+      types:
+        App\Web\Model\ColourTheme:
+          fields: [Name, Colour]
+          operations:
+            read: true
+    typeNames:
+      App\Web\Model\ColourTheme: Colour

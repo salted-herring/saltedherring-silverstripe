@@ -13,6 +13,8 @@ use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 
 class HomePage extends Page
 {
+    private static $table_name = 'HomePage';
+
     /**
      * CMS Fields
      * @return FieldList

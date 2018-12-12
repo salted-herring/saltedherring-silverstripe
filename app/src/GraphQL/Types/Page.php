@@ -1,0 +1,81 @@
+<?php
+
+namespace App\Web\GraphQL\Types;
+
+use GraphQL\Type\Definition\Type;
+use SilverStripe\GraphQL\TypeCreator;
+use SilverStripe\GraphQL\Pagination\Connection;
+
+use SaltedHerring\Salted\Cropper\SaltedCroppableImage;
+
+class PageTypeCreator extends TypeCreator
+{
+    public function attributes()
+    {
+        return [
+            'name' => 'Page'
+        ];
+    }
+
+    public function fields()
+    {
+        $heroImgConn = Connection::create('HeroImages')
+            ->setConnectionType(function () {
+                return $this->manager->getType('Image');
+            })
+            ->setDescription('A list of the hero images');
+
+        $ogImgLrg = Connection::create('OGImageLarge')
+            ->setConnectionType(function () {
+                return $this->manager->getType('SaltedCroppableImage');
+            })
+            ->setDescription('A list of the OG large images');
+        $ogImg = Connection::create('OGImage')
+                ->setConnectionType(function () {
+                    return $this->manager->getType('SaltedCroppableImage');
+                })
+                ->setDescription('A list of the OG large images');
+
+        return [
+            'ID'              => ['type' => Type::id()],
+            'AbsoluteLink'    => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->AbsoluteLink();
+                }
+            ],
+            'Link'            => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->Link();
+                }
+            ],
+            'Content'         => ['type' => Type::string()],
+            'MetaTitle'       => ['type' => Type::string()],
+            'MetaDescription' => ['type' => Type::string()],
+            'MetaKeywords'    => ['type' => Type::string()],
+            'ExtraMeta'       => ['type' => Type::string()],
+            'MetaRobots'      => ['type' => Type::string()],
+            'ConanicalURL'    => ['type' => Type::string()],
+            'OGType'          => ['type' => Type::string()],
+            'OGTitle'         => ['type' => Type::string()],
+            'OGDescription'   => ['type' => Type::string()],
+            'OGImage'         => ['type' => $this->manager->getType('SaltedCroppableImage')],
+            'OGImageLarge'    => ['type' => $this->manager->getType('SaltedCroppableImage')],
+            'HeroTitle'       => ['type' => Type::string()],
+            'HeroImages'      => [
+                'type' => $heroImgConn->toType(),
+                'args' => $heroImgConn->args(),
+                'resolve' => function ($obj, $args, $context) use ($heroImgConn) {
+                    return $heroImgConn->resolveList(
+                        $obj->HeroImages(),
+                        $args,
+                        $context
+                    );
+                }
+            ],
+            'BackgroundColour' => ['type' => $this->manager->getType('Colour')],
+            'TitleColour' => ['type' => $this->manager->getType('Colour')]
+        ];
+    }
+}

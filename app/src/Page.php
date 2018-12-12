@@ -6,7 +6,13 @@ namespace {
     use App\Web\Extensions\MetaExtension;
     use App\Web\Extensions\OpenGraphExtension;
 
+    use SilverStripe\Assets\File;
     use SilverStripe\CMS\Model\SiteTree;
+    use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
+    use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
+    use SilverStripe\ORM\ArrayList;
+
+    use GraphQL\Type\Definition\ResolveInfo;
 
     class Page extends SiteTree
     {
