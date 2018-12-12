@@ -23,7 +23,7 @@ class Latest extends DataObject
      */
     private static $db = [
         'Title'       => 'Varchar(100)',
-        'SummaryText' => 'HTMLVarchar(255)'
+        'SummaryText' => 'Varchar(255)'
     ];
 
     /**
@@ -37,6 +37,15 @@ class Latest extends DataObject
 
     private static $extensions = [
         Versioned::class,
+    ];
+
+    /**
+     * Ensures that the methods are wrapped in the correct type and
+     * values are safely escaped while rendering in the template.
+     * @var array
+     */
+    private static $casting = [
+        'SummaryText' => 'HTMLText'
     ];
 
     private static $versioned_gridfield_extensions = true;
