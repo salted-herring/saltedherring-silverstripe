@@ -3,6 +3,7 @@
 namespace App\Web\GraphQL\Types;
 
 use GraphQL\Type\Definition\Type;
+use SilverStripe\Core\ClassInfo;
 use SilverStripe\GraphQL\TypeCreator;
 use SilverStripe\GraphQL\Pagination\Connection;
 
@@ -19,22 +20,11 @@ class PageTypeCreator extends TypeCreator
 
     public function fields()
     {
-        $heroImgConn = Connection::create('HeroImages')
+        $heroImgConn = Connection::create(Classinfo::shortName($this) . 'HeroImages')
             ->setConnectionType(function () {
                 return $this->manager->getType('Image');
             })
             ->setDescription('A list of the hero images');
-
-        $ogImgLrg = Connection::create('OGImageLarge')
-            ->setConnectionType(function () {
-                return $this->manager->getType('SaltedCroppableImage');
-            })
-            ->setDescription('A list of the OG large images');
-        $ogImg = Connection::create('OGImage')
-                ->setConnectionType(function () {
-                    return $this->manager->getType('SaltedCroppableImage');
-                })
-                ->setDescription('A list of the OG large images');
 
         return [
             'ID'              => ['type' => Type::id()],
@@ -52,6 +42,7 @@ class PageTypeCreator extends TypeCreator
             ],
             'Content'         => ['type' => Type::string()],
             'MetaTitle'       => ['type' => Type::string()],
+            'Title'           => ['type' => Type::string()],
             'MetaDescription' => ['type' => Type::string()],
             'MetaKeywords'    => ['type' => Type::string()],
             'ExtraMeta'       => ['type' => Type::string()],

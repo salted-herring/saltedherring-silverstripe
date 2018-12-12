@@ -19,7 +19,15 @@ class SaltedCroppableImageTypeCreator extends TypeCreator
     {
         return [
             'ID'      => ['type' => Type::id()],
-            'Title'   => ['type' => Type::string()],
+            'Title'   => [
+                'type'    => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->exists()) {
+                        return $obj->Cropped()->Title;
+                    }
+                    return null;
+                }
+            ],
             'URL'     => ['type' => Type::string()],
             'Cropped' => [
                 'type'    => Type::string(),

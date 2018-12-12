@@ -15,7 +15,8 @@
         "silverstripe/graphql-devtools": "^1.0@dev",
         "silverstripe/recipe-cms": "4.2.2@stable",
         "silverstripe/recipe-plugin": "^1.2",
-        "tractorcow/silverstripe-colorpicker": "^4@dev"
+        "tractorcow/silverstripe-colorpicker": "^4@dev",
+        "gorriecoe/silverstripe-linkfield": "dev-master"
     },
     "require-dev": {
         "phpunit/phpunit": "^5.7"
