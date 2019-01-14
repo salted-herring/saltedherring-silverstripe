@@ -1,25 +1,36 @@
 ---
-Name: graphql
+Name: saltedherringgraphql
 ---
-SilverStripe\GraphQL\Controller:
-  schema:
-    types:
-      HomePage: 'App\Web\GraphQL\Types\HomePageTypeCreator'
-      Image: 'App\Web\GraphQL\Types\ImageTypeCreator'
-      Latest: 'App\Web\GraphQL\Types\LatestTypeCreator'
-      Page: 'App\Web\GraphQL\Types\PageTypeCreator'
-      SaltedCroppableImage: 'App\Web\GraphQL\Types\SaltedCroppableImageTypeCreator'
-    queries:
-      readHomePage: 'App\Web\GraphQL\Queries\ReadHomePageQueryCreator'
-      readImage: 'App\Web\GraphQL\Queries\ReadImageQueryCreator'
-      readLatest: 'App\Web\GraphQL\Queries\ReadLatestQueryCreator'
-      readPage: 'App\Web\GraphQL\Queries\ReadPageQueryCreator'
-      readSaltedCroppableImage: 'App\Web\GraphQL\Queries\ReadSaltedCroppableImageQueryCreator'
-    scaffolding:
+SilverStripe\Control\Director:
+  rules:
+    'graphql': '%$SilverStripe\GraphQL\Controller.default'
+
+SilverStripe\GraphQL\Manager:
+  schemas:
+    default:
       types:
-        App\Web\Model\ColourTheme:
-          fields: [Name, Colour]
-          operations:
-            read: true
-    typeNames:
-      App\Web\Model\ColourTheme: Colour
+        Award: 'App\Web\GraphQL\Types\AwardTypeCreator'
+        AwardDetail: 'App\Web\GraphQL\Types\AwardDetailTypeCreator'
+        AwardProgramme: 'App\Web\GraphQL\Types\AwardProgrammeTypeCreator'
+        HomePage: 'App\Web\GraphQL\Types\HomePageTypeCreator'
+        Image: 'App\Web\GraphQL\Types\ImageTypeCreator'
+        Latest: 'App\Web\GraphQL\Types\LatestTypeCreator'
+        Link: 'gorriecoe\Link\GraphQL\LinkTypeCreator'
+        Page: 'App\Web\GraphQL\Types\PageTypeCreator'
+        SaltedCroppableImage: 'App\Web\GraphQL\Types\SaltedCroppableImageTypeCreator'
+        WorkPage: 'App\Web\GraphQL\Types\WorkPageTypeCreator'
+      queries:
+        readHomePage: 'App\Web\GraphQL\Queries\ReadHomePageQueryCreator'
+        readImage: 'App\Web\GraphQL\Queries\ReadImageQueryCreator'
+        readLatest: 'App\Web\GraphQL\Queries\ReadLatestQueryCreator'
+        readPage: 'App\Web\GraphQL\Queries\ReadPageQueryCreator'
+        readSaltedCroppableImage: 'App\Web\GraphQL\Queries\ReadSaltedCroppableImageQueryCreator'
+        readWorkPage: 'App\Web\GraphQL\Queries\ReadWorkPageQueryCreator'
+      scaffolding:
+        types:
+          App\Web\Model\ColourTheme:
+            fields: [Name, Colour]
+            operations:
+              read: true
+      typeNames:
+        App\Web\Model\ColourTheme: Colour

@@ -3,3 +3,7 @@ Name: saltedherring
 ---
 SilverStripe\Core\Manifest\ModuleManifest:
   project: app
+
+SilverStripe\Assets\Image:
+  belongs_many_many:
+    WorkPage.ClientLogos: App\Web\Layout\WorkPage

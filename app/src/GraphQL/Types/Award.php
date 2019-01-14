@@ -6,27 +6,31 @@ use GraphQL\Type\Definition\Type;
 use SilverStripe\GraphQL\TypeCreator;
 use SilverStripe\GraphQL\Pagination\Connection;
 
-class LatestTypeCreator extends TypeCreator
+class AwardTypeCreator extends TypeCreator
 {
     public function attributes()
     {
         return [
-            'name' => 'Latest'
+            'name' => 'Award'
         ];
     }
 
     public function fields()
     {
+        $conn = Connection::create('AwardDetail')
+            ->setConnectionType(function () {
+                return $this->manager->getType('AwardDetail');
+            })
+            ->setDescription('A list of awards');
+
         return [
             'ID'            => ['type' => Type::id()],
             'Title'         => ['type' => Type::string()],
-            'SummaryText'   => ['type' => Type::string()],
-            'Link'          => ['type' => $this->manager->getType('Link')],
             'Image' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     if ($obj->Image()->exists()) {
-                        return $obj->Image()->FitMax(620, 400)->getURL();
+                        return $obj->Image()->FitMax(300, 300)->getURL();
                     }
                     return null;
                 }
@@ -35,9 +39,20 @@ class LatestTypeCreator extends TypeCreator
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     if ($obj->Image()->exists()) {
-                        return $obj->Image()->FitMax(1240, 800)->getURL();
+                        return $obj->Image()->FitMax(600, 600)->getURL();
                     }
                     return null;
+                }
+            ],
+            'AwardDetails' => [
+                'type' => $conn->toType(),
+                'args' => $conn->args(),
+                'resolve' => function ($obj, $args, $context) use ($conn) {
+                    return $conn->resolveList(
+                        $obj->Entries(),
+                        $args,
+                        $context
+                    );
                 }
             ]
         ];
