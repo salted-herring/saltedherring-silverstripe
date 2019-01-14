@@ -4,10 +4,10 @@ namespace App\Web\GraphQL\Types;
 
 use App\Web\GraphQL\Types\PageTypeCreator;
 
-use GraphQL\Type\Definition\Type;
 use SilverStripe\GraphQL\TypeCreator;
 use SilverStripe\GraphQL\Pagination\Connection;
 
+use GraphQL\Type\Definition\Type;
 use SaltedHerring\Salted\Cropper\SaltedCroppableImage;
 
 class HomePageTypeCreator extends PageTypeCreator

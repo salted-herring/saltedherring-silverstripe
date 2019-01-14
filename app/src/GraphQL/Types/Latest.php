@@ -21,7 +21,7 @@ class LatestTypeCreator extends TypeCreator
             'ID'            => ['type' => Type::id()],
             'Title'         => ['type' => Type::string()],
             'SummaryText'   => ['type' => Type::string()],
-            'Link'          => ['type' => $this->manager->getType('link')],
+            'Link'          => ['type' => $this->manager->getType('Link')],
             'Image' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
