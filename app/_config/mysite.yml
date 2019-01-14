@@ -7,3 +7,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\Assets\Image:
   belongs_many_many:
     WorkPage.ClientLogos: App\Web\Layout\WorkPage
+
+SilverStripe\Taxonomy\TaxonomyTerm:
+  belongs_many_many:
+    Services: App\Web\Layout\ProjectPage

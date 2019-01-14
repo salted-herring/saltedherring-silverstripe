@@ -8,15 +8,21 @@
 namespace App\Web\Layout;
 
 use Page;
+use App\Web\Extensions\HeroIntro;
+use App\Web\Layout\ProjectPage;
 use App\Web\Model\AwardProgramme;
 use App\Web\Model\ColourTheme;
 
 use SilverStripe\Assets\Image;
 use SilverStripe\Forms\CheckboxField;
+use SilverStripe\Forms\TabSet;
+use SilverStripe\Forms\Tab;
 use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Lumberjack\Model\Lumberjack;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
 use Heyday\ColorPalette\Fields\ColorPaletteField;
@@ -29,7 +35,6 @@ class WorkPage extends Page
      * @var array
      */
     private static $db = [
-        'Introduction'            => 'Varchar(100)',
         'ShowAwards'              => 'Boolean',
         'AwardsTitle'             => 'Varchar(100)',
         'ShowClients'             => 'Boolean',
@@ -63,13 +68,18 @@ class WorkPage extends Page
         ]
     ];
 
-    /**
-     * Relationship version ownership
-     * @var array
-     */
     private static $owns = [
         'Programmes',
         'ClientLogos'
+    ];
+
+    private static $extensions = [
+        Lumberjack::class,
+        HeroIntro::class
+    ];
+
+    private static $allowed_children = [
+        ProjectPage::class
     ];
 
     private static $table_name = 'WorkPage';
@@ -83,13 +93,6 @@ class WorkPage extends Page
         foreach (ColourTheme::get() as $colour) {
             $colours[$colour->ID . ""] = '#' . $colour->Colour;
         }
-
-        $fields->insertBefore('HeroTitle',
-            TextField::create(
-                'Introduction',
-                'Introduction'
-            )->setDescription('Short text intro/instruction.')
-        );
 
         $fields->addFieldsToTab(
             'Root.Awards',
@@ -146,6 +149,8 @@ class WorkPage extends Page
                 ->setIsMultiUpload(true)
             ]
         );
+
+        $this->extend('updateCMSFields', $fields);
 
         return $fields;
     }
