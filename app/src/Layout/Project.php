@@ -10,24 +10,29 @@ namespace App\Web\Layout;
 use Page;
 use App\Web\Extensions\HeroIntro;
 
+use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\ListboxField;
 use SilverStripe\Taxonomy\TaxonomyTerm;
 
-class ProjectPage extends Page
+class Project extends Page
 {
-    private static $show_in_sitetree = false;
-    private static $allowed_children = [];
-    private static $description = 'A project\'s page.';
-
-    private static $table_name = 'ProjectPage';
-
-    private static $extensions = [
-        HeroIntro::class
+    private static $db = [
+        'Recognition' => 'HTMLText'
     ];
 
     private static $many_many =  [
         'Terms' => TaxonomyTerm::class
     ];
+
+    private static $extensions = [
+        HeroIntro::class
+    ];
+
+    private static $show_in_sitetree = false;
+    private static $allowed_children = [];
+    private static $description = 'A project\'s page.';
+
+    private static $table_name = 'Project';
 
     public function getCMSFields()
     {
@@ -40,6 +45,10 @@ class ProjectPage extends Page
                     'Terms',
                     'Terms',
                     TaxonomyTerm::get()
+                ),
+                HtmlEditorField::create(
+                    'Recognition',
+                    'Recognition'
                 )
             ]
         );

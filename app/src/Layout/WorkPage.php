@@ -79,7 +79,7 @@ class WorkPage extends Page
     ];
 
     private static $allowed_children = [
-        ProjectPage::class
+        Project::class
     ];
 
     private static $table_name = 'WorkPage';

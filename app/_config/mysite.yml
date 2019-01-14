@@ -10,4 +10,4 @@ SilverStripe\Assets\Image:
 
 SilverStripe\Taxonomy\TaxonomyTerm:
   belongs_many_many:
-    Services: App\Web\Layout\ProjectPage
+    Services: App\Web\Layout\Project
