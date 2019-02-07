@@ -28,6 +28,7 @@ class PageTypeCreator extends TypeCreator
 
         return [
             'ID'              => ['type' => Type::id()],
+            'URLSegment'      => ['type' => Type::string()],
             'AbsoluteLink'    => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {

@@ -11,3 +11,7 @@ SilverStripe\Assets\Image:
 SilverStripe\Taxonomy\TaxonomyTerm:
   belongs_many_many:
     Services: App\Web\Layout\Project
+
+Silverstripe\SiteConfig\SiteConfig:
+  extensions:
+    - App\Web\Extensions\CustomSiteConfig

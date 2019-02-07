@@ -72,11 +72,14 @@ class AwardProgramme extends DataObject
         );
 
         $awards = $fields->fieldByName('Root.Awards.Awards');
-        $config = $awards->GetConfig();
 
-        $config
-            ->addComponent(new GridFieldOrderableRows('SortOrder'))
-            ->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+        if (!is_null($awards)) {
+            $config = $awards->GetConfig();
+
+            $config
+                ->addComponent(new GridFieldOrderableRows('SortOrder'))
+                ->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+        }
 
         $this->extend('updateCMSFields', $fields);
         return $fields;

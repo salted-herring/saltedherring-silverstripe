@@ -1,0 +1,10 @@
+---
+Name: sortable-menu
+---
+Symbiote\SortableMenu\SortableMenuExtension:
+  menus:
+    ShowInMain:
+      Title: 'Main'
+Page:
+  extensions:
+    - Symbiote\SortableMenu\SortableMenuExtension

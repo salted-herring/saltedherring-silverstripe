@@ -61,11 +61,14 @@ class Award extends DataObject
         $fields = parent::getCMSFields();
 
         $entries = $fields->fieldByName('Root.Entries.Entries');
-        $config = $entries->getConfig();
-        //
-        $config
-            ->addComponent(new GridFieldOrderableRows('SortOrder'))
-            ->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+
+        if (!is_null($entries)) {
+            $config = $entries->getConfig();
+
+            $config
+                ->addComponent(new GridFieldOrderableRows('SortOrder'))
+                ->removeComponentsByType(GridFieldAddExistingAutocompleter::class);
+        }
 
         $this->extend('updateCMSFields', $fields);
         return $fields;

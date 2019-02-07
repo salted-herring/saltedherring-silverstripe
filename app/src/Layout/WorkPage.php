@@ -150,7 +150,7 @@ class WorkPage extends Page
             ]
         );
 
-        $this->extend('updateCMSFields', $fields);
+        // $this->extend('updateCMSFields', $fields);
 
         return $fields;
     }

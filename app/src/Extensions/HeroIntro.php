@@ -9,7 +9,7 @@
 namespace App\Web\Extensions;
 
 use SilverStripe\Forms\FieldList;
-use SilverStripe\Forms\TextField;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataExtension;
 
 class HeroIntro extends DataExtension
@@ -21,7 +21,7 @@ class HeroIntro extends DataExtension
     public function updateCMSFields(FieldList $fields)
     {
         $fields->insertBefore('HeroTitle',
-            TextField::create(
+            TextareaField::create(
                 'Introduction',
                 'Introduction'
             )->setDescription('Short text intro/instruction.')
