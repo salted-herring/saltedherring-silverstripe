@@ -20,7 +20,13 @@ class ImageTypeCreator extends TypeCreator
         return [
             'ID'            => ['type' => Type::id()],
             'Title'         => ['type' => Type::string()],
-            'URL'          => ['type' => Type::string()],
+            'URL'           => ['type' => Type::string()],
+            'Thumbnail' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->FitMax(300, 300)->getURL();
+                }
+            ],
             'FitFullScreen' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {

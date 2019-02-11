@@ -26,7 +26,7 @@ class LatestTypeCreator extends TypeCreator
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     if ($obj->Image()->exists()) {
-                        return $obj->Image()->FitMax(620, 400)->getURL();
+                        return $obj->Image()->FitMax(684, 400)->getURL();
                     }
                     return null;
                 }

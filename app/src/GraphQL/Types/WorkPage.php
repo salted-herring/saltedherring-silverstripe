@@ -35,8 +35,19 @@ class WorkPageTypeCreator extends PageTypeCreator
             })
             ->setDescription('A list of the awards programmes.');
 
+        $pageConn = Connection::create('Page2')
+            ->setConnectionType(function () {
+                return $this->manager->getType('Page');
+            })
+            ->setDescription('A list of pages');
+
         return array_merge($fields, [
-            'Introduction'            => ['type' => Type::string()],
+            'Introduction'            => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return nl2br($obj->Introduction);
+                }
+            ],
             'ShowAwards'              => ['type' => Type::boolean()],
             'AwardsTitle'             => ['type' => Type::string()],
             'ShowClients'             => ['type' => Type::boolean()],
@@ -60,6 +71,17 @@ class WorkPageTypeCreator extends PageTypeCreator
                 'resolve' => function ($obj, $args, $context) use ($awardsConn) {
                     return $awardsConn->resolveList(
                         $obj->Programmes(),
+                        $args,
+                        $context
+                    );
+                }
+            ],
+            'Projects' => [
+                'type' => $pageConn->toType(),
+                'args' => $pageConn->args(),
+                'resolve' => function ($obj, $args, $context) use ($pageConn) {
+                    return $pageConn->resolveList(
+                        $obj->Children(),
                         $args,
                         $context
                     );

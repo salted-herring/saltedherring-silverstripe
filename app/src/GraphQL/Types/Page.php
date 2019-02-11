@@ -6,6 +6,7 @@ use GraphQL\Type\Definition\Type;
 use SilverStripe\Core\ClassInfo;
 use SilverStripe\GraphQL\TypeCreator;
 use SilverStripe\GraphQL\Pagination\Connection;
+use SilverStripe\View\Parsers\ShortcodeParser;
 
 use SaltedHerring\Salted\Cropper\SaltedCroppableImage;
 
@@ -41,8 +42,14 @@ class PageTypeCreator extends TypeCreator
                     return $obj->Link();
                 }
             ],
-            'Content'         => ['type' => Type::string()],
+            'Content'         => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return ShortcodeParser::get_active()->parse($obj->Content);
+                }
+            ],
             'MetaTitle'       => ['type' => Type::string()],
+            'MenuTitle'       => ['type' => Type::string()],
             'Title'           => ['type' => Type::string()],
             'MetaDescription' => ['type' => Type::string()],
             'MetaKeywords'    => ['type' => Type::string()],
