@@ -9,19 +9,60 @@ namespace App\Web\Layout;
 
 use Page;
 use App\Web\Extensions\HeroIntro;
+use App\Web\Model\ContentBlock;
+use App\Web\Model\TextBlock;
 
+use SilverStripe\Forms\GridField\GridField;
+use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
+use SilverStripe\Forms\GridField\GridFieldAddNewButton;
+use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
-use SilverStripe\Forms\ListboxField;
-use SilverStripe\Taxonomy\TaxonomyTerm;
+use SilverStripe\Forms\TextareaField;
+
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
 
 class Project extends Page
 {
     private static $db = [
-        'Recognition' => 'HTMLText'
+        'Services'             => 'HTMLText',
+        'Recognition'          => 'HTMLText',
+        'Summary'              => 'Text',
+        'RelatedProjectsTitle' => 'Text'
     ];
 
-    private static $many_many =  [
-        'Terms' => TaxonomyTerm::class
+    /**
+     * Has_many relationship
+     * @var array
+     */
+    private static $has_many = [
+        'ContentBlocks' => ContentBlock::class
+    ];
+
+    /**
+     * Many_many relationship
+     * @var array
+     */
+    private static $many_many = [
+        'RelatedProjects'      => self::class
+    ];
+
+    /**
+     * Defines Database fields for the Many_many bridging table
+     * @var array
+     */
+    private static $many_many_extraFields = [
+        'RelatedProjects' => [
+            'Sort' => 'Int'
+        ]
+    ];
+
+    private static $belongs_many_many = [
+        'Related' => 'Project.RelatedProjects'
+    ];
+
+    private static $defaults = [
+        'RelatedProjectsTitle' => "Some other projects\n you might find interesting"
     ];
 
     private static $extensions = [
@@ -41,10 +82,9 @@ class Project extends Page
         $fields->addFieldsToTab(
             'Root.Tags',
             [
-                ListboxField::create(
-                    'Terms',
-                    'Terms',
-                    TaxonomyTerm::get()
+                HtmlEditorField::create(
+                    'Services',
+                    'Services'
                 ),
                 HtmlEditorField::create(
                     'Recognition',
@@ -52,6 +92,58 @@ class Project extends Page
                 )
             ]
         );
+
+        $fields->addFieldToTab(
+            'Root.Main',
+            TextareaField::create(
+                'Summary',
+                'Summary'
+            )
+            ->setDescription('Short introduction to the project.')
+        );
+
+        if ($this->exists()) {
+            $fields->addFieldsToTab(
+                'Root.RelatedProjects',
+                [
+                    TextareaField::create(
+                        'RelatedProjectsTitle',
+                        'Related Projects Title'
+                    ),
+                    GridField::create(
+                        'RelatedProjects',
+                        'Related Projects',
+                        $this->RelatedProjects(),
+                        GridFieldConfig_RelationEditor::create()
+                            ->addComponent(
+                                new GridFieldOrderableRows('Sort')
+                            )
+                    )
+                ]
+            );
+
+            $fields->addFieldsToTab(
+                'Root.Blocks',
+                [
+                    GridField::create(
+                        'ContentBlocks',
+                        'Content Blocks',
+                        $this->ContentBlocks(),
+                        GridFieldConfig_RelationEditor::create()
+                            ->addComponent(
+                                new GridFieldOrderableRows('SortOrder')
+                            )
+                            ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
+                            ->removeComponentsByType(GridFieldAddNewButton::class)
+                            ->addComponent($multi = new GridFieldAddNewMultiClass())
+                    )
+                ]
+            );
+
+            $multi->setClasses([
+                TextBlock::class
+            ]);
+        }
 
         return $fields;
     }

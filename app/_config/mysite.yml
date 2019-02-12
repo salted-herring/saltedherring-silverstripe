@@ -15,3 +15,6 @@ SilverStripe\Taxonomy\TaxonomyTerm:
 Silverstripe\SiteConfig\SiteConfig:
   extensions:
     - App\Web\Extensions\CustomSiteConfig
+
+Project_RelatedProjects:
+  default_sort: '"Project_RelatedProjects"."Sort" ASC'

@@ -73,6 +73,7 @@ class PageTypeCreator extends TypeCreator
                     );
                 }
             ],
+            'HeroVideo'         => ['type' => $this->manager->getType('File')],
             'BackgroundColour' => ['type' => $this->manager->getType('Colour')],
             'TitleColour' => ['type' => $this->manager->getType('Colour')]
         ];
