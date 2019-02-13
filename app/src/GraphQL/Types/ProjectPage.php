@@ -30,6 +30,12 @@ class ProjectPageTypeCreator extends PageTypeCreator
             })
             ->setDescription('A list of pages');
 
+        // $contentConn = Connection::create('ContentBlocks')
+        //     ->setConnectionType(function () {
+        //         return $this->manager->getType('ContentBlock');
+        //     })
+        //     ->setDescription('A list of related blocks');
+
         return array_merge($fields, [
             'Summary' => [
                 'type' => Type::string(),

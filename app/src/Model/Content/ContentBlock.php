@@ -8,11 +8,20 @@
  * */
 namespace App\Web\Model;
 
-use App\Web\Layout\Project;
 use App\Web\Extensions\SortOrder;
+use App\Web\Layout\Project;
+use App\Web\Model\ImageBlock;
+use App\Web\Model\TextBlock;
+use App\Web\Model\VideoBlock;
 
+use SilverStripe\Core\ClassInfo;
+use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
+use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 use SilverStripe\ORM\DataObject;
+use SilverStripe\ORM\Hierarchy\Hierarchy;
 use SilverStripe\Versioned\Versioned;
+
+use GraphQL\Type\Definition\ResolveInfo;
 
 class ContentBlock extends DataObject
 {
@@ -70,5 +79,33 @@ class ContentBlock extends DataObject
         }
 
         return $result;
+    }
+
+    // public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder)
+    // {
+    //     $scaffolder
+    //         ->type(ContentBlock::class)
+    //             ->addFields(['ID', 'Title', 'SortOrder'])
+    //             ->operation(SchemaScaffolder::READ)
+    //                 ->end()
+    //             ->end();
+    //
+    //     return $scaffolder;
+    // }
+    public function canView($member = null, $context = [])
+    {
+        return true;
+    }
+    public function canEdit($member = null, $context = [])
+    {
+        return true;
+    }
+    public function canCreate($member = null, $context = [])
+    {
+        return true;
+    }
+    public function canDelete($member = null, $context = [])
+    {
+        return true;
     }
 }

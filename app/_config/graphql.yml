@@ -12,17 +12,21 @@ SilverStripe\GraphQL\Manager:
         Award: 'App\Web\GraphQL\Types\AwardTypeCreator'
         AwardDetail: 'App\Web\GraphQL\Types\AwardDetailTypeCreator'
         AwardProgramme: 'App\Web\GraphQL\Types\AwardProgrammeTypeCreator'
+        ContentBlock: 'App\Web\GraphQL\Types\ContentBlockTypeCreator'
+        File: 'SilverStripe\AssetAdmin\GraphQL\FileTypeCreator'
+        FileInterface: 'SilverStripe\AssetAdmin\GraphQL\FileInterfaceTypeCreator'
         FooterDetail: 'App\Web\GraphQL\Types\FooterDetailTypeCreator'
         HomePage: 'App\Web\GraphQL\Types\HomePageTypeCreator'
         Image: 'App\Web\GraphQL\Types\ImageTypeCreator'
+        ImageBlock: 'App\Web\GraphQL\Types\ImageBlockTypeCreator'
         Latest: 'App\Web\GraphQL\Types\LatestTypeCreator'
         Link: 'gorriecoe\Link\GraphQL\LinkTypeCreator'
-        File: 'SilverStripe\AssetAdmin\GraphQL\FileTypeCreator'
-        FileInterface: 'SilverStripe\AssetAdmin\GraphQL\FileInterfaceTypeCreator'
         Menu: 'App\Web\GraphQL\Types\MenuTypeCreator'
         Page: 'App\Web\GraphQL\Types\PageTypeCreator'
         Project: 'App\Web\GraphQL\Types\ProjectPageTypeCreator'
         SaltedCroppableImage: 'App\Web\GraphQL\Types\SaltedCroppableImageTypeCreator'
+        TextBlock: 'App\Web\GraphQL\Types\TextBlockTypeCreator'
+        VideoBlock: 'App\Web\GraphQL\Types\VideoBlockTypeCreator'
         WorkPage: 'App\Web\GraphQL\Types\WorkPageTypeCreator'
       queries:
         readAwardProgrammes: 'App\Web\GraphQL\Queries\AwardProgrammesQueryCreator'
@@ -41,5 +45,11 @@ SilverStripe\GraphQL\Manager:
             fields: [Name, Colour]
             operations:
               read: true
+      scaffolding_providers:
+        - App\Web\Layout\Project
       typeNames:
         App\Web\Model\ColourTheme: Colour
+        App\Web\Model\ContentBlock: ContentBlock
+        App\Web\Model\TextBlock: TextBlock
+        App\Web\Model\ImageBlock: ImageBlock
+        App\Web\Model\VideoBlock: VideoBlock

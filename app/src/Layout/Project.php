@@ -11,6 +11,8 @@ use Page;
 use App\Web\Extensions\HeroIntro;
 use App\Web\Model\ContentBlock;
 use App\Web\Model\TextBlock;
+use App\Web\Model\ImageBlock;
+use App\Web\Model\VideoBlock;
 
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
@@ -18,11 +20,14 @@ use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\TextareaField;
+use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
+use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 
+use GraphQL\Type\Definition\ResolveInfo;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
 
-class Project extends Page
+class Project extends Page implements ScaffoldingProvider
 {
     private static $db = [
         'Services'             => 'HTMLText',
@@ -141,10 +146,35 @@ class Project extends Page
             );
 
             $multi->setClasses([
-                TextBlock::class
+                TextBlock::class,
+                ImageBlock::class,
+                VideoBlock::class
             ]);
         }
 
         return $fields;
+    }
+
+    public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder)
+    {
+        $scaffolder
+            ->type('App\\Web\\Model\\ContentBlock')
+                ->addFields(['ClassName', 'ID', 'Title', 'SortOrder'])
+                ->operation(SchemaScaffolder::READ)
+                    ->addArgs([
+                        'ProjectSlug' => 'String'
+                    ])
+                    ->setResolver(function ($object, array $args, $context, ResolveInfo $info) {
+                        $list = ContentBlock::get();
+
+                        if (isset($args['ProjectSlug'])) {
+                            $list = $list->filter('Project.URLSegment', $args['ProjectSlug']);
+                        }
+                        return $list;
+                    })
+                    ->end()
+                ->end();
+
+        return $scaffolder;
     }
 }

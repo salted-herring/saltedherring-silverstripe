@@ -48,6 +48,20 @@ class TextBlock extends ContentBlock
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
+        $fields->fieldByName('Root.Main.Alignment')
+            ->setDescription('Set the alignment of the content - if no quote is displayed, the block is aligned centrally');
+
+        $fields->addFieldsToTab(
+            'Root.Quote',
+            [
+                $fields->fieldByName('Root.Main.ShowQuote')
+                    ->setDescription('will display a quote to left or right of main content (depending on alignment chosen)'),
+                $fields->fieldByName('Root.Main.Quote'),
+                $fields->fieldByName('Root.Main.Source')
+            ]
+        );
+
         $this->extend('updateCMSFields', $fields);
         return $fields;
     }

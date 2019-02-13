@@ -7,6 +7,7 @@ SilverStripe\Core\Manifest\ModuleManifest:
 SilverStripe\Assets\Image:
   belongs_many_many:
     WorkPage.ClientLogos: App\Web\Layout\WorkPage
+    ImageBlock.Images: App\Web\Model\ImageBlock
 
 SilverStripe\Taxonomy\TaxonomyTerm:
   belongs_many_many:
