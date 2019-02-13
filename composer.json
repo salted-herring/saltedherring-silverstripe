@@ -45,7 +45,8 @@
         ]
     },
     "scripts": {
-        "post-update-cmd": "GDM\\SSAutoGitIgnore\\UpdateScript::Go"
+        "post-update-cmd": "GDM\\SSAutoGitIgnore\\UpdateScript::Go",
+        "composer vendor-expose"
     },
     "config": {
         "process-timeout": 600
