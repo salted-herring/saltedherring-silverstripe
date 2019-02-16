@@ -30,11 +30,11 @@ class ProjectPageTypeCreator extends PageTypeCreator
             })
             ->setDescription('A list of pages');
 
-        // $contentConn = Connection::create('ContentBlocks')
-        //     ->setConnectionType(function () {
-        //         return $this->manager->getType('ContentBlock');
-        //     })
-        //     ->setDescription('A list of related blocks');
+        $contentConn = Connection::create('ContentBlocks')
+            ->setConnectionType(function () {
+                return $this->manager->getType('ContentBlock');
+            })
+            ->setDescription('A list of related blocks');
 
         return array_merge($fields, [
             'Summary' => [
@@ -77,7 +77,26 @@ class ProjectPageTypeCreator extends PageTypeCreator
                         $context
                     );
                 }
-            ]
+            ],
+            'ContentBlocks' => [
+                'type' => $this->manager->getType('ContentBlock'),
+                'args' => $contentConn->args(),
+                'resolve' => function ($obj, $args, $context) use ($contentConn) {
+                    return $contentConn->resolveList(
+                        $obj->ContentBlocks(),
+                        $args,
+                        $context
+                    );
+                }
+            ],
         ]);
     }
+   //  $scaffolder->type(MyObject::class)
+   // ->nestedQuery(
+   //     'MyNestedField',  // the name of the field on the parent object
+   //     new MyCustomListQueryScaffolder(
+   //       'customOperation', // The name of the operation. Must be unique.
+   //       'MyCustomType' // The type the query will return. Make sure it's been registered.
+   //     )
+   // );
 }

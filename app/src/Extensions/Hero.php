@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Hero extension
  * @author Simon Winter <simon@saltedherring.com>
@@ -13,6 +14,7 @@ use App\Web\Model\ColourTheme;
 use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\Assets\File;
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\DropdownField;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverStripe\ORM\DataExtension;
@@ -27,7 +29,8 @@ class HeroExtension extends DataExtension
      * @var array
      */
     private static $db = [
-        'HeroTitle'        => 'Varchar(100)'
+        'HeroTitle'        => 'Varchar(100)',
+        'HeroMenuColour'   => 'Enum(array("black", "white"))'
     ];
 
     /**
@@ -74,6 +77,12 @@ class HeroExtension extends DataExtension
                     'Title'
                 )
                 ->setDescription('Title as shown in the background of the page (if not present will use the page name)'),
+                DropdownField::create(
+                    'HeroMenuColour',
+                    'Menu Colour',
+                    singleton(get_class($this->owner))->dbObject('HeroMenuColour')->enumValues()
+                )
+                ->setDescription('If the header needs to use hte white menu, shoose that here.'),
                 ColorPaletteField::create(
                     'BackgroundColourID',
                     'Hero Background Colour',

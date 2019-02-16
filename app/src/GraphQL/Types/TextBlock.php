@@ -22,6 +22,7 @@ class TextBlockTypeCreator extends ContentBlockTypeCreator
     public function fields()
     {
         return array_merge(parent::fields(), [
+            'Alignment' => ['type' => Type::string()],
             'Content' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {

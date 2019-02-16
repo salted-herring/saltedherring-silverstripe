@@ -62,6 +62,7 @@ class PageTypeCreator extends TypeCreator
             'OGImage'         => ['type' => $this->manager->getType('SaltedCroppableImage')],
             'OGImageLarge'    => ['type' => $this->manager->getType('SaltedCroppableImage')],
             'HeroTitle'       => ['type' => Type::string()],
+            'HeroMenuColour'  => ['type' => Type::string()],
             'HeroImages'      => [
                 'type' => $heroImgConn->toType(),
                 'args' => $heroImgConn->args(),

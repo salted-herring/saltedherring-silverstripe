@@ -25,7 +25,7 @@ class VideoBlock extends ContentBlock
      * @var array
      */
     private static $db = [
-        'VideoSource' => 'Enum(array("Internal","Enternal"))',
+        'VideoSource' => 'Enum(array("Internal","External"))',
         'VideoLink' => VideoLink::class
     ];
 
@@ -43,7 +43,10 @@ class VideoBlock extends ContentBlock
      * @var array
      */
     private static $defaults = [];
-    private static $owns = ['OptionalPreview'];
+    private static $owns = [
+        'OptionalPreview',
+        'VideoFile'
+    ];
 
     private static $table_name = 'VideoBlock';
 
