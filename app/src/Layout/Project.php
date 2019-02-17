@@ -14,6 +14,9 @@ use App\Web\Model\TextBlock;
 use App\Web\Model\ImageBlock;
 use App\Web\Model\VideoBlock;
 
+use SilverStripe\AssetAdmin\Forms\UploadField;
+use SilverStripe\Assets\File;
+use SilverStripe\Assets\Image;
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
@@ -34,6 +37,15 @@ class Project extends Page implements ScaffoldingProvider
         'Recognition'          => 'HTMLText',
         'Summary'              => 'Text',
         'RelatedProjectsTitle' => 'Text'
+    ];
+
+    /**
+     * Has_one relationship
+     * @var array
+     */
+    private static $has_one = [
+        'PreviewVideo' => File::class,
+        'PreviewImage' => Image::class
     ];
 
     /**
@@ -80,9 +92,34 @@ class Project extends Page implements ScaffoldingProvider
 
     private static $table_name = 'Project';
 
+    private static $owns = [
+        'PreviewVideo',
+        'PreviewImage'
+    ];
+
     public function getCMSFields()
     {
         $fields = parent::getCMSFields();
+
+        $fields->addFieldsToTab(
+            'Root.Preview',
+            [
+                UploadField::create(
+                    'PreviewVideo',
+                    'Video'
+                )
+                ->setDescription('If you wish to use a video as the preview, upload a video file.')
+                ->setAllowedFileCategories('video')
+                ->setFolderName('Projects/Previews'),
+                UploadField::create(
+                    'PreviewImage',
+                    'Image'
+                )
+                ->setDescription('If you wish to use an image as the preview (or add a poster for the video), upload an image file')
+                ->setAllowedFileCategories('image')
+                ->setFolderName('Projects/Previews')
+            ]
+        );
 
         $fields->addFieldsToTab(
             'Root.Tags',

@@ -89,14 +89,8 @@ class ProjectPageTypeCreator extends PageTypeCreator
                     );
                 }
             ],
+            'PreviewVideo' => ['type' => $this->manager->getType('File')],
+            'PreviewImage' => ['type' => $this->manager->getType('Image')]
         ]);
     }
-   //  $scaffolder->type(MyObject::class)
-   // ->nestedQuery(
-   //     'MyNestedField',  // the name of the field on the parent object
-   //     new MyCustomListQueryScaffolder(
-   //       'customOperation', // The name of the operation. Must be unique.
-   //       'MyCustomType' // The type the query will return. Make sure it's been registered.
-   //     )
-   // );
 }

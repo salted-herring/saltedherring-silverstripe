@@ -37,7 +37,7 @@ class WorkPageTypeCreator extends PageTypeCreator
 
         $pageConn = Connection::create('Page2')
             ->setConnectionType(function () {
-                return $this->manager->getType('Page');
+                return $this->manager->getType('Project');
             })
             ->setDescription('A list of pages');
 
