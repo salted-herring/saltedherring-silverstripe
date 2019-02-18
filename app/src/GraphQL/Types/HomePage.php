@@ -30,6 +30,7 @@ class HomePageTypeCreator extends PageTypeCreator
             ->setDescription('A list of the latest news');
 
         return array_merge($fields, [
+            'HeroMenuColour'  => ['type' => Type::string()],
             'LatestSectionTitle' => ['type' => Type::string()],
             'Latest' => [
                 'type' => $latestConn->toType(),
