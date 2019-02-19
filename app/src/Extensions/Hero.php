@@ -52,7 +52,8 @@ class HeroExtension extends DataExtension
     ];
 
     private static $owns = [
-        'HeroImages'
+        'HeroImages',
+        'HeroVideo'
     ];
 
     private static $many_many_extraFields = [
