@@ -126,7 +126,7 @@ class Project extends Page implements ScaffoldingProvider
             [
                 HtmlEditorField::create(
                     'Services',
-                    'Services'
+                    'Top Tags'
                 ),
                 HtmlEditorField::create(
                     'Recognition',
@@ -139,7 +139,7 @@ class Project extends Page implements ScaffoldingProvider
             'Root.Main',
             TextareaField::create(
                 'Summary',
-                'Summary'
+                'Bottom Tags'
             )
             ->setDescription('Short introduction to the project.')
         );
