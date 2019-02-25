@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "452090272e123b59136206a44c6792bd",
+    "content-hash": "42c4e7a059705ad64c9c0eea63bf0460",
     "packages": [
         {
             "name": "axllent/silverstripe-form-fields",
@@ -293,16 +293,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v3.3.7",
+            "version": "v3.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "9666691c78b25047bc6ee7e94823de3eaadce0c6"
+                "reference": "5a1677f19274b76ae93cfffa7626b935b7c37e51"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/9666691c78b25047bc6ee7e94823de3eaadce0c6",
-                "reference": "9666691c78b25047bc6ee7e94823de3eaadce0c6",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/5a1677f19274b76ae93cfffa7626b935b7c37e51",
+                "reference": "5a1677f19274b76ae93cfffa7626b935b7c37e51",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +342,7 @@
                 "opengraph",
                 "twitter cards"
             ],
-            "time": "2018-10-22T21:59:03+00:00"
+            "time": "2019-02-13T09:06:53+00:00"
         },
         {
             "name": "gdmedia/ss-auto-git-ignore",
@@ -376,16 +376,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.10.5",
+            "version": "8.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "667a1fe292561b7c64c4fc457a9f1ecc41d67185"
+                "reference": "75fa86dec0a79632fe492fa121b2a067ec100bf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/667a1fe292561b7c64c4fc457a9f1ecc41d67185",
-                "reference": "667a1fe292561b7c64c4fc457a9f1ecc41d67185",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/75fa86dec0a79632fe492fa121b2a067ec100bf1",
+                "reference": "75fa86dec0a79632fe492fa121b2a067ec100bf1",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +440,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2019-02-08T08:31:08+00:00"
+            "time": "2019-02-21T11:30:36+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -816,16 +816,16 @@
         },
         {
             "name": "kinglozzer/metatitle",
-            "version": "2.0.3",
+            "version": "2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kinglozzer/silverstripe-metatitle.git",
-                "reference": "990c33a3639f6547a4801aae14b96659e7a494e0"
+                "reference": "fbf2c9922ffa36de6c70418082473421dbabf31b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kinglozzer/silverstripe-metatitle/zipball/990c33a3639f6547a4801aae14b96659e7a494e0",
-                "reference": "990c33a3639f6547a4801aae14b96659e7a494e0",
+                "url": "https://api.github.com/repos/kinglozzer/silverstripe-metatitle/zipball/fbf2c9922ffa36de6c70418082473421dbabf31b",
+                "reference": "fbf2c9922ffa36de6c70418082473421dbabf31b",
                 "shasum": ""
             },
             "require": {
@@ -858,7 +858,7 @@
                 "silverstripe",
                 "title"
             ],
-            "time": "2017-11-10T09:42:54+00:00"
+            "time": "2019-02-20T14:13:00+00:00"
         },
         {
             "name": "league/csv",
@@ -1279,16 +1279,16 @@
         },
         {
             "name": "nikic/php-parser",
-            "version": "v4.2.0",
+            "version": "v4.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a"
+                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
-                "reference": "594bcae1fc0bccd3993d2f0d61a018e26ac2865a",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/5221f49a608808c1e4d436df32884cbc1b821ac0",
+                "reference": "5221f49a608808c1e4d436df32884cbc1b821ac0",
                 "shasum": ""
             },
             "require": {
@@ -1326,7 +1326,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-01-12T16:31:37+00:00"
+            "time": "2019-02-16T20:54:15+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2293,12 +2293,12 @@
             "version": "3.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/silverstripe/silverstripe-graphql.git",
+                "url": "https://github.com/simonwinter/silverstripe-graphql.git",
                 "reference": "c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
+                "url": "https://api.github.com/repos/simonwinter/silverstripe-graphql/zipball/c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
                 "reference": "c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
                 "shasum": ""
             },
@@ -2327,11 +2327,21 @@
                     "SilverStripe\\GraphQL\\Tests\\": "tests/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "scripts": {
+                "lint": [
+                    "vendor/bin/phpcs src/ tests/"
+                ],
+                "lint-clean": [
+                    "vendor/bin/phpcbf src/ tests/"
+                ]
+            },
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "GraphQL server for SilverStripe models and other data",
+            "support": {
+                "source": "https://github.com/simonwinter/silverstripe-graphql/tree/3"
+            },
             "time": "2019-02-11T07:54:15+00:00"
         },
         {
@@ -4499,6 +4509,7 @@
                 "mock",
                 "xunit"
             ],
+            "abandoned": true,
             "time": "2017-06-30T09:13:00+00:00"
         },
         {

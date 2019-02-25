@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Web\GraphQL\Types;
 
 use GraphQL\Type\Definition\Type;
@@ -30,7 +29,7 @@ class ImageTypeCreator extends TypeCreator
             'FitFullScreen' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->FitMax(1920, 1080)->getURL();
+                    return $obj->ScaleMaxWidth(1920)->getURL();
                 }
             ]
         ];
