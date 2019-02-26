@@ -89,8 +89,26 @@ class ProjectPageTypeCreator extends PageTypeCreator
                     );
                 }
             ],
-            'PreviewVideo' => ['type' => $this->manager->getType('File')],
-            'PreviewImage' => ['type' => $this->manager->getType('Image')]
+            'PreviewVideo' => [
+                'type' => $this->manager->getType('File'),
+                'resolve' => function ($obj, $args, $context) {
+                    if (!$obj->PreviewVideo()->exists() && $obj->HeroVideo()->exists()) {
+                        return $obj->HeroVideo();
+                    }
+
+                    return $obj->PreviewVideo();
+                }
+            ],
+            'PreviewImage' => [
+                'type' => $this->manager->getType('Image'),
+                'resolve' => function ($obj, $args, $context) {
+                    if (!$obj->PreviewImage()->exists() && $obj->HeroImages()->count() > 0) {
+                        return $obj->HeroImages()->first();
+                    }
+
+                    return $obj->PreviewImage();
+                }
+            ]
         ]);
     }
 }

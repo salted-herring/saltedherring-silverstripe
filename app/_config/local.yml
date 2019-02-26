@@ -1,9 +1,10 @@
 SilverStripe\GraphQL\Controller:
   cors:
-    Enabled: true
+    Enabled: false
     Allow-Origin:
       - 'http://localhost:8085'
       - 'http://localhost:8145'
+      - 'http://localhost:3000'
       - 'http://mitmproxy:8080'
       - '172.18.0.1'
     Allow-Headers: 'Authorization, Content-Type, Credentials, x-xsrf-token'

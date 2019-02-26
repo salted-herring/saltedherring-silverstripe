@@ -21,7 +21,8 @@ class ReadPageQueryCreator extends QueryCreator implements OperationResolver
     public function args()
     {
         return [
-            'ID' => ['type' => Type::int()]
+            'ID' => ['type' => Type::int()],
+            'Slug' => ['type' => Type::string()]
         ];
     }
 
@@ -36,6 +37,8 @@ class ReadPageQueryCreator extends QueryCreator implements OperationResolver
 
         if (isset($args['ID'])) {
             $list = $list->filter('ID', $args['ID']);
+        } elseif (isset($args['Slug'])) {
+            $list = $list->filter('URLSegment', $args['Slug']);
         }
 
         return $list;
