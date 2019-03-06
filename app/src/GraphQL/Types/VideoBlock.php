@@ -49,10 +49,6 @@ class VideoBlockTypeCreator extends ContentBlockTypeCreator
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     $link = $obj->VideoLink;
-                    $obj = VideoLink::create()->setValue($link);
-                    if ($obj->iFrameURL) {
-                        $link = $obj->Iframe(1920, 1080);
-                    }
                     return $link;
                 }
             ],

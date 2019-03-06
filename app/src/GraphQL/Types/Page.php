@@ -29,6 +29,7 @@ class PageTypeCreator extends TypeCreator
 
         return [
             'ID'              => ['type' => Type::id()],
+            'Sort'            => ['type' => Type::int()],
             'URLSegment'      => ['type' => Type::string()],
             'AbsoluteLink'    => [
                 'type' => Type::string(),

@@ -26,9 +26,9 @@ class ProjectPageTypeCreator extends PageTypeCreator
 
         $pageConn = Connection::create('RelatedPages')
             ->setConnectionType(function () {
-                return $this->manager->getType('Page');
+                return $this->manager->getType('Project');
             })
-            ->setDescription('A list of pages');
+            ->setDescription('A list of projects');
 
         $contentConn = Connection::create('ContentBlocks')
             ->setConnectionType(function () {
