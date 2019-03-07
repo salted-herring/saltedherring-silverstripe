@@ -23,6 +23,18 @@ class MenuTypeCreator extends TypeCreator
             })
             ->setDescription('A list of pages');
 
+        $colourConn = Connection::create('MenuColourTheme')
+            ->setConnectionType(function () {
+                return $this->manager->getType('Colour');
+            })
+            ->setDescription('A list of pages');
+
+        $colourConn1 = Connection::create('MenuColourTheme1')
+            ->setConnectionType(function () {
+                return $this->manager->getType('Colour');
+            })
+            ->setDescription('A list of pages');
+
         return [
             'ID'            => ['type' => Type::id()],
             'Title'         => ['type' => Type::string()],
@@ -43,6 +55,20 @@ class MenuTypeCreator extends TypeCreator
                         $args,
                         $context
                     );
+                }
+            ],
+            'TitleColour'  => [
+                'type' => $colourConn->toType(),
+                'args' => $colourConn->args(),
+                'resolve' => function ($obj, $args, $context) use ($colourConn) {
+                    return $obj->TitleColour();
+                }
+            ],
+            'BackgroundColour'  => [
+                'type' => $colourConn1->toType(),
+                'args' => $colourConn1->args(),
+                'resolve' => function ($obj, $args, $context) use ($colourConn1) {
+                    return $obj->BackgroundColour();
                 }
             ]
         ];
