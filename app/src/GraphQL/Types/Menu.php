@@ -57,20 +57,8 @@ class MenuTypeCreator extends TypeCreator
                     );
                 }
             ],
-            'TitleColour'  => [
-                'type' => $colourConn->toType(),
-                'args' => $colourConn->args(),
-                'resolve' => function ($obj, $args, $context) use ($colourConn) {
-                    return $obj->TitleColour();
-                }
-            ],
-            'BackgroundColour'  => [
-                'type' => $colourConn1->toType(),
-                'args' => $colourConn1->args(),
-                'resolve' => function ($obj, $args, $context) use ($colourConn1) {
-                    return $obj->BackgroundColour();
-                }
-            ]
+            'TitleColour' => ['type' => $this->manager->getType('Colour')],
+            'BackgroundColour' => ['type' => $this->manager->getType('Colour')]
         ];
     }
 }
