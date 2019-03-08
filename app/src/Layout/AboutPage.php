@@ -8,20 +8,17 @@
 namespace App\Web\Layout;
 
 use Page;
+use App\Web\Model\AboutSection;
 use App\Web\Model\ColourTheme;
-use App\Web\Model\Section;
-use App\Web\Model\BlocksSection;
-use App\Web\Model\ContentOnlySection;
-use App\Web\Model\IntroductionSection;
 
 use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 
+use Colymba\BulkManager\BulkManager;
 use Heyday\ColorPalette\Fields\ColorPaletteField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
-use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
 
 class AboutPage extends Page
 {
@@ -43,7 +40,7 @@ class AboutPage extends Page
      * @var array
      */
     private static $has_one = [
-        'BackgroundColour' => ColourTheme::class,
+        'BackgroundColour' => ColourTheme::class
     ];
 
     /**
@@ -51,7 +48,7 @@ class AboutPage extends Page
      * @var array
      */
     private static $has_many = [
-        'Sections' => Section::class,
+        'AboutSections' => AboutSection::class
     ];
 
     /**
@@ -85,25 +82,18 @@ class AboutPage extends Page
                 'Root.Sections',
                 [
                     GridField::create(
+                        'AboutSections',
                         'Sections',
-                        'Sections',
-                        $this->Sections(),
+                        $this->AboutSections(),
                         GridFieldConfig_RelationEditor::create()
                             ->addComponent(
                                 new GridFieldOrderableRows('SortOrder')
                             )
+                            ->addComponent(new BulkManager(null, false, true))
                             ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
-                            ->removeComponentsByType(GridFieldAddNewButton::class)
-                            ->addComponent($multi = new GridFieldAddNewMultiClass())
                     )
                 ]
             );
-
-            $multi->setClasses([
-                BlocksSection::class,
-                ContentOnlySection::class,
-                IntroductionSection::class
-            ]);
         }
 
         return $fields;

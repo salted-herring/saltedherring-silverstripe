@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42c4e7a059705ad64c9c0eea63bf0460",
+    "content-hash": "e64e6255c22263b541e7606aa7947268",
     "packages": [
         {
             "name": "axllent/silverstripe-form-fields",
@@ -114,6 +114,65 @@
                 "sortable"
             ],
             "time": "2018-08-17T14:29:02+00:00"
+        },
+        {
+            "name": "colymba/gridfield-bulk-editing-tools",
+            "version": "3.0.0-beta4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/colymba/GridFieldBulkEditingTools.git",
+                "reference": "7f2045e7aa6a28650c616445bb58dd81971839f9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/colymba/GridFieldBulkEditingTools/zipball/7f2045e7aa6a28650c616445bb58dd81971839f9",
+                "reference": "7f2045e7aa6a28650c616445bb58dd81971839f9",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/asset-admin": "~1",
+                "silverstripe/framework": "~4"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.x-dev"
+                },
+                "expose": [
+                    "client/dist",
+                    "client/lang"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Colymba\\BulkTools\\": "src/BulkTools/",
+                    "Colymba\\BulkManager\\": "src/BulkManager/",
+                    "Colymba\\BulkUpload\\": "src/BulkUploader/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "GitHub contributors",
+                    "homepage": "https://github.com/colymba/GridFieldBulkEditingTools/contributors"
+                },
+                {
+                    "name": "Thierry Francois",
+                    "homepage": "http://t-f.io"
+                }
+            ],
+            "description": "SilverStripe GridField component to upload images/files and edit records in bulk",
+            "homepage": "https://github.com/colymba/GridFieldBulkEditingTools",
+            "keywords": [
+                "Image upload",
+                "bulk upload",
+                "gridfield bulk upload",
+                "silverstripe"
+            ],
+            "time": "2018-03-14T20:44:41+00:00"
         },
         {
             "name": "composer/ca-bundle",
@@ -293,16 +352,16 @@
         },
         {
             "name": "embed/embed",
-            "version": "v3.3.8",
+            "version": "v3.3.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oscarotero/Embed.git",
-                "reference": "5a1677f19274b76ae93cfffa7626b935b7c37e51"
+                "reference": "4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/5a1677f19274b76ae93cfffa7626b935b7c37e51",
-                "reference": "5a1677f19274b76ae93cfffa7626b935b7c37e51",
+                "url": "https://api.github.com/repos/oscarotero/Embed/zipball/4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c",
+                "reference": "4f0d7c0ba8dce13228fd35b7a73cd4ef5ab0f02c",
                 "shasum": ""
             },
             "require": {
@@ -342,7 +401,7 @@
                 "opengraph",
                 "twitter cards"
             ],
-            "time": "2019-02-13T09:06:53+00:00"
+            "time": "2019-02-25T15:07:28+00:00"
         },
         {
             "name": "gdmedia/ss-auto-git-ignore",
@@ -376,16 +435,16 @@
         },
         {
             "name": "giggsey/libphonenumber-for-php",
-            "version": "8.10.6",
+            "version": "8.10.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/giggsey/libphonenumber-for-php.git",
-                "reference": "75fa86dec0a79632fe492fa121b2a067ec100bf1"
+                "reference": "09686926c6a4ded26944602eae80e56eba088c4b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/75fa86dec0a79632fe492fa121b2a067ec100bf1",
-                "reference": "75fa86dec0a79632fe492fa121b2a067ec100bf1",
+                "url": "https://api.github.com/repos/giggsey/libphonenumber-for-php/zipball/09686926c6a4ded26944602eae80e56eba088c4b",
+                "reference": "09686926c6a4ded26944602eae80e56eba088c4b",
                 "shasum": ""
             },
             "require": {
@@ -440,7 +499,7 @@
                 "phonenumber",
                 "validation"
             ],
-            "time": "2019-02-21T11:30:36+00:00"
+            "time": "2019-03-07T08:42:08+00:00"
         },
         {
             "name": "giggsey/locale",
@@ -1663,12 +1722,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/salted-herring/salted-cropper.git",
-                "reference": "a1b5f91583f1bb7f98b200e66cda9dea7ae1cec7"
+                "reference": "1f8ca8fc81a01fc6eff732ec29c4431d336ddaa6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/salted-herring/salted-cropper/zipball/a1b5f91583f1bb7f98b200e66cda9dea7ae1cec7",
-                "reference": "a1b5f91583f1bb7f98b200e66cda9dea7ae1cec7",
+                "url": "https://api.github.com/repos/salted-herring/salted-cropper/zipball/1f8ca8fc81a01fc6eff732ec29c4431d336ddaa6",
+                "reference": "1f8ca8fc81a01fc6eff732ec29c4431d336ddaa6",
                 "shasum": ""
             },
             "require": {
@@ -1699,7 +1758,7 @@
                 "image cropper",
                 "silverstripe image cropper"
             ],
-            "time": "2018-11-06T03:45:27+00:00"
+            "time": "2019-02-07T04:20:07+00:00"
         },
         {
             "name": "silvershop/silverstripe-hasonefield",
@@ -2293,12 +2352,12 @@
             "version": "3.x-dev",
             "source": {
                 "type": "git",
-                "url": "https://github.com/simonwinter/silverstripe-graphql.git",
+                "url": "https://github.com/silverstripe/silverstripe-graphql.git",
                 "reference": "c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/simonwinter/silverstripe-graphql/zipball/c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
                 "reference": "c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
                 "shasum": ""
             },
@@ -3068,16 +3127,16 @@
         },
         {
             "name": "symfony/cache",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/cache.git",
-                "reference": "38e5f4300cff5e70b714afd7cc658f5138514f94"
+                "reference": "aa02b67f961a15cef21f21d293afcac574a62118"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/cache/zipball/38e5f4300cff5e70b714afd7cc658f5138514f94",
-                "reference": "38e5f4300cff5e70b714afd7cc658f5138514f94",
+                "url": "https://api.github.com/repos/symfony/cache/zipball/aa02b67f961a15cef21f21d293afcac574a62118",
+                "reference": "aa02b67f961a15cef21f21d293afcac574a62118",
                 "shasum": ""
             },
             "require": {
@@ -3134,20 +3193,20 @@
                 "caching",
                 "psr6"
             ],
-            "time": "2019-01-16T13:27:11+00:00"
+            "time": "2019-02-23T15:06:07+00:00"
         },
         {
             "name": "symfony/config",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "c9bc510c217075d42d4a927e285917d0c2001cf4"
+                "reference": "177a276c01575253c95cefe0866e3d1b57637fe0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/c9bc510c217075d42d4a927e285917d0c2001cf4",
-                "reference": "c9bc510c217075d42d4a927e285917d0c2001cf4",
+                "url": "https://api.github.com/repos/symfony/config/zipball/177a276c01575253c95cefe0866e3d1b57637fe0",
+                "reference": "177a276c01575253c95cefe0866e3d1b57637fe0",
                 "shasum": ""
             },
             "require": {
@@ -3198,20 +3257,20 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-30T11:33:42+00:00"
+            "time": "2019-02-23T15:06:07+00:00"
         },
         {
             "name": "symfony/filesystem",
-            "version": "v4.2.3",
+            "version": "v4.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/filesystem.git",
-                "reference": "7c16ebc2629827d4ec915a52ac809768d060a4ee"
+                "reference": "e16b9e471703b2c60b95f14d31c1239f68f11601"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/filesystem/zipball/7c16ebc2629827d4ec915a52ac809768d060a4ee",
-                "reference": "7c16ebc2629827d4ec915a52ac809768d060a4ee",
+                "url": "https://api.github.com/repos/symfony/filesystem/zipball/e16b9e471703b2c60b95f14d31c1239f68f11601",
+                "reference": "e16b9e471703b2c60b95f14d31c1239f68f11601",
                 "shasum": ""
             },
             "require": {
@@ -3248,20 +3307,20 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T20:35:37+00:00"
+            "time": "2019-02-07T11:40:08+00:00"
         },
         {
             "name": "symfony/finder",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "7c0c627220308928e958a87c293108e5891cde1d"
+                "reference": "fcdde4aa38f48190ce70d782c166f23930084f9b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/7c0c627220308928e958a87c293108e5891cde1d",
-                "reference": "7c0c627220308928e958a87c293108e5891cde1d",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/fcdde4aa38f48190ce70d782c166f23930084f9b",
+                "reference": "fcdde4aa38f48190ce70d782c166f23930084f9b",
                 "shasum": ""
             },
             "require": {
@@ -3297,7 +3356,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T13:43:35+00:00"
+            "time": "2019-02-22T14:44:53+00:00"
         },
         {
             "name": "symfony/polyfill-apcu",
@@ -3538,16 +3597,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v3.4.22",
+            "version": "v3.4.23",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "ba11776e9e6c15ad5759a07bffb15899bac75c2d"
+                "reference": "57f1ce82c997f5a8701b89ef970e36bb657fd09c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/ba11776e9e6c15ad5759a07bffb15899bac75c2d",
-                "reference": "ba11776e9e6c15ad5759a07bffb15899bac75c2d",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/57f1ce82c997f5a8701b89ef970e36bb657fd09c",
+                "reference": "57f1ce82c997f5a8701b89ef970e36bb657fd09c",
                 "shasum": ""
             },
             "require": {
@@ -3593,7 +3652,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2019-01-16T10:59:17+00:00"
+            "time": "2019-02-23T15:06:07+00:00"
         },
         {
             "name": "tractorcow/silverstripe-colorpicker",

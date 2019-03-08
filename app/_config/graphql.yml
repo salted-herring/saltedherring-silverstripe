@@ -13,6 +13,9 @@ SilverStripe\GraphQL\Manager:
   schemas:
     default:
       types:
+        AboutContentBlock: 'App\Web\GraphQL\Types\AboutContentBlockTypeCreator'
+        AboutPage: 'App\Web\GraphQL\Types\AboutPageTypeCreator'
+        AboutSection: 'App\Web\GraphQL\Types\AboutSectionBlockTypeCreator'
         Award: 'App\Web\GraphQL\Types\AwardTypeCreator'
         AwardDetail: 'App\Web\GraphQL\Types\AwardDetailTypeCreator'
         AwardProgramme: 'App\Web\GraphQL\Types\AwardProgrammeTypeCreator'
@@ -33,6 +36,7 @@ SilverStripe\GraphQL\Manager:
         VideoBlock: 'App\Web\GraphQL\Types\VideoBlockTypeCreator'
         WorkPage: 'App\Web\GraphQL\Types\WorkPageTypeCreator'
       queries:
+        readAboutPage: 'App\Web\GraphQL\Queries\ReadAboutPageQueryCreator'
         readAwardProgrammes: 'App\Web\GraphQL\Queries\AwardProgrammesQueryCreator'
         readFooter: 'App\Web\GraphQL\Queries\ReadFooterDetailQueryCreator'
         readHomePage: 'App\Web\GraphQL\Queries\ReadHomePageQueryCreator'

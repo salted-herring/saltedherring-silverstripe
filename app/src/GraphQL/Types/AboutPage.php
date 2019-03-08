@@ -14,7 +14,7 @@ class AboutPageTypeCreator extends PageTypeCreator
     public function attributes()
     {
         return [
-            'name' => 'About'
+            'name' => 'AboutPage'
         ];
     }
 
@@ -22,13 +22,20 @@ class AboutPageTypeCreator extends PageTypeCreator
     {
         $fields = parent::fields();
 
+        $conn = Connection::create('AboutSectionsConn')
+            ->setConnectionType(function () {
+                return $this->manager->getType('AboutSection');
+            })
+            ->setDescription('A list of about blocks');
+
         return array_merge($fields, [
-            'Sections' => [
-                'type' => $this->manager->getType('Section'),
-                'args' => $contentConn->args(),
-                'resolve' => function ($obj, $args, $context) use ($contentConn) {
-                    return $contentConn->resolveList(
-                        $obj->Sections(),
+            'BackgroundColour' => ['type' => $this->manager->getType('Colour')],
+            'AboutSections' => [
+                'type' => $conn->toType(),
+                'args' => $conn->args(),
+                'resolve' => function ($obj, $args, $context) use ($conn) {
+                    return $conn->resolveList(
+                        $obj->AboutSections(),
                         $args,
                         $context
                     );

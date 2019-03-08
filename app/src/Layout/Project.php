@@ -26,6 +26,7 @@ use SilverStripe\Forms\TextareaField;
 use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
 use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 
+use Colymba\BulkManager\BulkManager;
 use GraphQL\Type\Definition\ResolveInfo;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 use Symbiote\GridFieldExtensions\GridFieldAddNewMultiClass;
@@ -175,6 +176,7 @@ class Project extends Page implements ScaffoldingProvider
                             ->addComponent(
                                 new GridFieldOrderableRows('SortOrder')
                             )
+                            ->addComponent(new BulkManager(null, false, true))
                             ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
                             ->removeComponentsByType(GridFieldAddNewButton::class)
                             ->addComponent($multi = new GridFieldAddNewMultiClass())
