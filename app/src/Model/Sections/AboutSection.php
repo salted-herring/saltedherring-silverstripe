@@ -55,7 +55,8 @@ class AboutSection extends DataObject
      * @var array
      */
     private static $owns = [
-        'Blocks'
+        'Blocks',
+        'Introduction'
     ];
 
     /**
