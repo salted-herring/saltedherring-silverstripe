@@ -23,37 +23,73 @@ class ImageTypeCreator extends TypeCreator
             'Thumbnail' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->FitMax(300, 300)->getURL();
+                    $img = $obj->FitMax(300, 300);
+
+                    if(!is_null($img)) {
+                        return $img->getURL();
+                    }
+
+                    return null;
                 }
             ],
             'ThumbnailWidth' => [
                 'type' => Type::int(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->FitMax(300, 300)->getWidth();
+                    $img = $obj->FitMax(300, 300);
+
+                    if(!is_null($img)) {
+                        return $img->getWidth();
+                    }
+
+                    return null;
                 }
             ],
             'ThumbnailHeight' => [
                 'type' => Type::int(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->FitMax(300, 300)->getHeight();
+                    $img = $obj->FitMax(300, 300);
+
+                    if(!is_null($img)) {
+                        return $img->getHeight();
+                    }
+
+                    return null;
                 }
             ],
             'FitFullScreen' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->ScaleMaxWidth(1920)->getURL();
+                    $img = $obj->ScaleMaxWidth(1920);
+
+                    if(!is_null($img)) {
+                        return $img->getURL();
+                    }
+
+                    return null;
                 }
             ],
             'FitFullScreenWidth' => [
                 'type' => Type::int(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->ScaleMaxWidth(1920)->getWidth();
+                    $img = $obj->ScaleMaxWidth(1920);
+
+                    if(!is_null($img)) {
+                        return $img->getWidth();
+                    }
+
+                    return null;
                 }
             ],
             'FitFullScreenHeight' => [
                 'type' => Type::int(),
                 'resolve' => function ($obj, $args, $context) {
-                    return $obj->ScaleMaxWidth(1920)->getHeight();
+                    $img = $obj->ScaleMaxWidth(1920);
+
+                    if(!is_null($img)) {
+                        return $img->getHeight();
+                    }
+
+                    return null;
                 }
             ]
         ];
