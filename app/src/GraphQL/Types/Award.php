@@ -35,11 +35,47 @@ class AwardTypeCreator extends TypeCreator
                     return null;
                 }
             ],
+            'ImageWidth' => [
+                'type' => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(300, 300)->getWidth();
+                    }
+                    return null;
+                }
+            ],
+            'ImageHeight' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(300, 300)->getHeight();
+                    }
+                    return null;
+                }
+            ],
             'Imagex2' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     if ($obj->Image()->exists()) {
                         return $obj->Image()->FitMax(600, 600)->getURL();
+                    }
+                    return null;
+                }
+            ],
+            'Imagex2Width' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(600, 600)->getWidth();
+                    }
+                    return null;
+                }
+            ],
+            'Imagex2Height' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(600, 600)->getHeight();
                     }
                     return null;
                 }

@@ -26,10 +26,34 @@ class ImageTypeCreator extends TypeCreator
                     return $obj->FitMax(300, 300)->getURL();
                 }
             ],
+            'ThumbnailWidth' => [
+                'type' => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->FitMax(300, 300)->getWidth();
+                }
+            ],
+            'ThumbnailHeight' => [
+                'type' => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->FitMax(300, 300)->getHeight();
+                }
+            ],
             'FitFullScreen' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     return $obj->ScaleMaxWidth(1920)->getURL();
+                }
+            ],
+            'FitFullScreenWidth' => [
+                'type' => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->ScaleMaxWidth(1920)->getWidth();
+                }
+            ],
+            'FitFullScreenHeight' => [
+                'type' => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    return $obj->ScaleMaxWidth(1920)->getHeight();
                 }
             ]
         ];

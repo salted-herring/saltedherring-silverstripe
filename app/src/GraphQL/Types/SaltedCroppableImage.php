@@ -37,6 +37,24 @@ class SaltedCroppableImageTypeCreator extends TypeCreator
                     }
                     return null;
                 }
+            ],
+            'Width' => [
+                'type'    => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->exists()) {
+                        return $obj->Cropped()->getWidth();
+                    }
+                    return null;
+                }
+            ],
+            'Height' => [
+                'type'    => Type::int(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->exists()) {
+                        return $obj->Cropped()->getHeight();
+                    }
+                    return null;
+                }
             ]
         ];
     }

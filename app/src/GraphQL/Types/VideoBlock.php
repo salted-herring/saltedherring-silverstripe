@@ -52,15 +52,7 @@ class VideoBlockTypeCreator extends ContentBlockTypeCreator
                     return $link;
                 }
             ],
-            'OptionalPreview' => [
-                'type' => Type::string(),
-                'resolve' => function ($obj, $args, $context) {
-                    if ($obj->OptionalPreview()->exists()) {
-                        return $obj->OptionalPreview()->FitMax(1920, 1280)->getURL();
-                    }
-                    return null;
-                }
-            ],
+            'OptionalPreview' => ['type' => $this->manager->getType('Image')],
             'VideoFile' => ['type' => $this->manager->getType('File')],
         ]);
     }

@@ -31,11 +31,47 @@ class LatestTypeCreator extends TypeCreator
                     return null;
                 }
             ],
+            'ImageWidth' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(684, 400)->getWidth();
+                    }
+                    return null;
+                }
+            ],
+            'ImageHeight' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(684, 400)->getHeight();
+                    }
+                    return null;
+                }
+            ],
             'Imagex2' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     if ($obj->Image()->exists()) {
                         return $obj->Image()->FitMax(1240, 800)->getURL();
+                    }
+                    return null;
+                }
+            ],
+            'Imagex2Width' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(1240, 800)->getWidth();
+                    }
+                    return null;
+                }
+            ],
+            'Imagex2Height' => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    if ($obj->Image()->exists()) {
+                        return $obj->Image()->FitMax(1240, 800)->getHeight();
                     }
                     return null;
                 }
