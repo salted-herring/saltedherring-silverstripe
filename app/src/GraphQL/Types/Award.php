@@ -45,7 +45,7 @@ class AwardTypeCreator extends TypeCreator
                 }
             ],
             'ImageHeight' => [
-                'type' => Type::string(),
+                'type' => Type::int(),
                 'resolve' => function ($obj, $args, $context) {
                     if ($obj->Image()->exists()) {
                         return $obj->Image()->FitMax(300, 300)->getHeight();
