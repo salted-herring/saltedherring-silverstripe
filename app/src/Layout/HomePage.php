@@ -17,6 +17,8 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\TextField;
 
+use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
+
 class HomePage extends Page
 {
     /**
@@ -67,6 +69,9 @@ class HomePage extends Page
             $this->Latest(),
             GridFieldConfig_RelationEditor::create()
                 ->removeComponentsByType(GridFieldAddExistingAutocompleter::class)
+                ->addComponent(
+                    new GridFieldOrderableRows('SortOrder')
+                )
         );
 
         $fields->addFieldsToTab(

@@ -36,7 +36,7 @@ class Latest extends DataObject
     ];
 
     private static $extensions = [
-        Versioned::class,
+        Versioned::class
     ];
 
     /**

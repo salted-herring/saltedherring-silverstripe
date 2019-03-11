@@ -20,6 +20,8 @@ namespace {
 
         private static $has_one = [];
 
+        private static $versioned_gridfield_extensions = true;
+
         /**
          * Defines extension names and parameters to be applied
          * to this object upon construction.

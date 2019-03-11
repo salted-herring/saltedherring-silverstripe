@@ -25,6 +25,7 @@ use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
 use SilverStripe\Lumberjack\Model\Lumberjack;
 
 use Bummzack\SortableFile\Forms\SortableUploadField;
+use Colymba\BulkManager\BulkManager;
 use Heyday\ColorPalette\Fields\ColorPaletteField;
 use Symbiote\GridFieldExtensions\GridFieldOrderableRows;
 
@@ -150,7 +151,16 @@ class WorkPage extends Page
             ]
         );
 
-        // $this->extend('updateCMSFields', $fields);
+
+        $childConfig = $fields
+            ->fieldByName('Root.ChildPages.ChildPages')
+            ->getConfig();
+
+        $childConfig
+            ->addComponent(
+                new GridFieldOrderableRows('Sort')
+            )
+            ->addComponent(new BulkManager(null, false, true));
 
         return $fields;
     }
