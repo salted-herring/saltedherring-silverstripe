@@ -21,4 +21,4 @@ Project_RelatedProjects:
   default_sort: '"Project_RelatedProjects"."Sort" ASC'
 
 HomePage_Latest:
-  default_sort: '"HomePage_Latest"."Sort" ASC'
+  default_sort: '"HomePage_Latest"."SortOrder" ASC'

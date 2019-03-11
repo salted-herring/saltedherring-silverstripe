@@ -38,6 +38,19 @@ class AboutContentBlockTypeCreator extends TypeCreator
                     return ShortcodeParser::get_active()->parse($obj->Details);
                 }
             ],
+            'ShowQuote' => ['type' => Type::boolean()],
+            'Quote'     => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return nl2br($obj->Quote);
+                }
+            ],
+            'Source'    => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return nl2br($obj->Source);
+                }
+            ]
         ];
     }
 }

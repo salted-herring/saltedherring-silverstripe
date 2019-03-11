@@ -9,6 +9,7 @@
 namespace App\Web\Model;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
 
@@ -83,6 +84,11 @@ class Latest extends DataObject
         $fields->removeByName([
             'LinkID'
         ]);
+
+        $fields->replaceField('SummaryText', TextareaField::create(
+            'SummaryText',
+            $this->fieldLabel('SummaryText')
+        ));
 
         $fields->addFieldsToTab(
             'Root.Main',
