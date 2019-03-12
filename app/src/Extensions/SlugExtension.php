@@ -66,6 +66,8 @@ class SlugField extends DataExtension
             return $this->owner->Slug;
         }
 
-        return strtolower($this->owner->getTitle());
+        $slug = strtolower(trim($this->owner->getTitle()));
+
+        return trim(preg_replace('/[^\da-z]/i', '-', $slug), '-');
     }
 }

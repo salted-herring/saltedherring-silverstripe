@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3213c9e3bb2a367c1e7f66b1509e773",
+    "content-hash": "eaef6fe9c9bf0aeeba8e4845199f65af",
     "packages": [
         {
             "name": "axllent/silverstripe-form-fields",
@@ -5244,13 +5244,13 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "salted-herring/salted-cropper": 20,
-        "silverstripe/graphql-devtools": 20,
-        "silverstripe/segment-field": 20,
-        "tractorcow/silverstripe-colorpicker": 20,
         "gorriecoe/silverstripe-linkfield": 20,
+        "salted-herring/salted-cropper": 20,
         "silverstripe/graphql": 20,
-        "silverstripe/redirectedurls": 20
+        "silverstripe/graphql-devtools": 20,
+        "silverstripe/redirectedurls": 20,
+        "silverstripe/segment-field": 20,
+        "tractorcow/silverstripe-colorpicker": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,
