@@ -26,17 +26,23 @@ class AboutSectionBlockTypeCreator extends TypeCreator
             ->setDescription('A list of about blocks');
 
         return [
-            'ID'        => ['type' => Type::id()],
-            'SortOrder' => ['type' => Type::int()],
-            'HeroTitle'     => ['type' => Type::string()],
+            'ID'               => ['type' => Type::id()],
+            'SortOrder'        => ['type' => Type::int()],
+            'HeroTitle'        => ['type' => Type::string()],
             'HeroIntroduction' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     return nl2br($obj->HeroIntroduction);
                 }
             ],
-            'Introduction' => ['type' => $this->manager->getType('TextBlock')],
-            'Blocks' => [
+            'Slug'             => [
+                'type' => Type::string(),
+                'resolve' => function($obj, $args, $context) {
+                    return $obj->getSlugValue();
+                }
+            ],
+            'Introduction'     => ['type' => $this->manager->getType('TextBlock')],
+            'Blocks'           => [
                 'type' => $conn->toType(),
                 'args' => $conn->args(),
                 'resolve' => function ($obj, $args, $context) use ($conn) {

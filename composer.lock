@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "898317df793003c07671678607037e85",
+    "content-hash": "f3213c9e3bb2a367c1e7f66b1509e773",
     "packages": [
         {
             "name": "axllent/silverstripe-form-fields",
@@ -2353,12 +2353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-graphql.git",
-                "reference": "c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c"
+                "reference": "25f1b17975fa9d11c2c9811294a3e0b018476cf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
-                "reference": "c691a47dd9780b8f13a26ae2bcf1c6f2b8be9e3c",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/25f1b17975fa9d11c2c9811294a3e0b018476cf9",
+                "reference": "25f1b17975fa9d11c2c9811294a3e0b018476cf9",
                 "shasum": ""
             },
             "require": {
@@ -2386,22 +2386,12 @@
                     "SilverStripe\\GraphQL\\Tests\\": "tests/"
                 }
             },
-            "scripts": {
-                "lint": [
-                    "vendor/bin/phpcs src/ tests/"
-                ],
-                "lint-clean": [
-                    "vendor/bin/phpcbf src/ tests/"
-                ]
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "BSD-3-Clause"
             ],
             "description": "GraphQL server for SilverStripe models and other data",
-            "support": {
-                "source": "https://github.com/simonwinter/silverstripe-graphql/tree/3"
-            },
-            "time": "2019-02-11T07:54:15+00:00"
+            "time": "2019-03-11T08:18:16+00:00"
         },
         {
             "name": "silverstripe/graphql-devtools",
@@ -2618,6 +2608,62 @@
             "time": "2018-04-11T07:22:09+00:00"
         },
         {
+            "name": "silverstripe/redirectedurls",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-redirectedurls.git",
+                "reference": "042ece48aaa9f5d72b7e56280d8c6ac8190937e6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-redirectedurls/zipball/042ece48aaa9f5d72b7e56280d8c6ac8190937e6",
+                "reference": "042ece48aaa9f5d72b7e56280d8c6ac8190937e6",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4",
+                "silverstripe/framework": "^4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5",
+                "squizlabs/php_codesniffer": "^3"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "images"
+                ],
+                "branch-alias": {
+                    "dev-master": "2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\RedirectedURLs\\": "src/",
+                    "SilverStripe\\RedirectedURLs\\Test\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sam Minnee",
+                    "email": "sam@silverstripe.com"
+                }
+            ],
+            "description": "Provides a system for users to configure arbitrary redirections in the CMS",
+            "keywords": [
+                "redirect",
+                "redirectedurls",
+                "silverstripe",
+                "urls"
+            ],
+            "time": "2018-04-17T21:04:02+00:00"
+        },
+        {
             "name": "silverstripe/reports",
             "version": "4.3.0",
             "source": {
@@ -2676,6 +2722,58 @@
                 "silverstripe"
             ],
             "time": "2018-11-07T03:31:28+00:00"
+        },
+        {
+            "name": "silverstripe/segment-field",
+            "version": "2.2.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/silverstripe/silverstripe-segment-field.git",
+                "reference": "17734b05c18244db039c1a8d3555761249247415"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-segment-field/zipball/17734b05c18244db039c1a8d3555761249247415",
+                "reference": "17734b05c18244db039c1a8d3555761249247415",
+                "shasum": ""
+            },
+            "require": {
+                "silverstripe/cms": "^4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "silverstripe/reports": "^4.0",
+                "silverstripe/siteconfig": "^4.0",
+                "squizlabs/php_codesniffer": "^3.0"
+            },
+            "type": "silverstripe-vendormodule",
+            "extra": {
+                "expose": [
+                    "client/dist"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "SilverStripe\\Forms\\": "code/",
+                    "SilverStripe\\Forms\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christopher Pitt",
+                    "email": "cgpitt@gmail.com"
+                }
+            ],
+            "description": "A reusable approach to segment-generating fields",
+            "keywords": [
+                "segment",
+                "silverstripe"
+            ],
+            "time": "2018-09-03T11:17:10+00:00"
         },
         {
             "name": "silverstripe/siteconfig",
@@ -5148,9 +5246,11 @@
     "stability-flags": {
         "salted-herring/salted-cropper": 20,
         "silverstripe/graphql-devtools": 20,
+        "silverstripe/segment-field": 20,
         "tractorcow/silverstripe-colorpicker": 20,
         "gorriecoe/silverstripe-linkfield": 20,
-        "silverstripe/graphql": 20
+        "silverstripe/graphql": 20,
+        "silverstripe/redirectedurls": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

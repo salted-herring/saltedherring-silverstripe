@@ -8,6 +8,7 @@
  * */
 namespace App\Web\Model;
 
+use App\Web\Extensions\SlugField;
 use App\Web\Extensions\SortOrder;
 use App\Web\Layout\AboutPage;
 use App\Web\Model\AboutContentBlock;
@@ -69,6 +70,7 @@ class AboutSection extends DataObject
     ];
 
     private static $extensions = [
+        SlugField::class,
         SortOrder::class,
         Versioned::class
     ];
