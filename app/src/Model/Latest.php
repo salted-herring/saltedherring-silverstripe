@@ -24,7 +24,7 @@ class Latest extends DataObject
      */
     private static $db = [
         'Title'       => 'Varchar(100)',
-        'SummaryText' => 'Varchar(255)'
+        'SummaryText' => 'Text'
     ];
 
     /**
