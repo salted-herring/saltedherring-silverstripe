@@ -25,7 +25,12 @@ class AboutContentBlockTypeCreator extends TypeCreator
         return [
             'ID'           => ['type' => Type::id()],
             'SortOrder'    => ['type' => Type::int()],
-            'Title'        => ['type' => Type::string()],
+            'Title'        => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return nl2br($obj->Title);
+                }
+            ],
             'Introduction' => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
