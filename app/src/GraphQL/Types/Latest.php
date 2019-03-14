@@ -5,6 +5,7 @@ namespace App\Web\GraphQL\Types;
 use GraphQL\Type\Definition\Type;
 use SilverStripe\GraphQL\TypeCreator;
 use SilverStripe\GraphQL\Pagination\Connection;
+use SilverStripe\View\Parsers\ShortcodeParser;
 
 class LatestTypeCreator extends TypeCreator
 {
@@ -20,7 +21,12 @@ class LatestTypeCreator extends TypeCreator
         return [
             'ID'            => ['type' => Type::id()],
             'Title'         => ['type' => Type::string()],
-            'SummaryText'   => ['type' => Type::string()],
+            'SummaryText'      => [
+                'type' => Type::string(),
+                'resolve' => function ($obj, $args, $context) {
+                    return ShortcodeParser::get_active()->parse($obj->SummaryText);
+                }
+            ],
             'Link'          => ['type' => $this->manager->getType('Link')],
             'Image' => [
                 'type' => Type::string(),

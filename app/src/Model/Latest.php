@@ -9,6 +9,7 @@
 namespace App\Web\Model;
 
 use SilverStripe\Assets\Image;
+use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Versioned\Versioned;
@@ -24,7 +25,7 @@ class Latest extends DataObject
      */
     private static $db = [
         'Title'       => 'Varchar(100)',
-        'SummaryText' => 'Text'
+        'SummaryText' => 'HTMLText'
     ];
 
     /**
@@ -85,7 +86,7 @@ class Latest extends DataObject
             'LinkID'
         ]);
 
-        $fields->replaceField('SummaryText', TextareaField::create(
+        $fields->replaceField('SummaryText', HtmlEditorField::create(
             'SummaryText',
             $this->fieldLabel('SummaryText')
         ));
