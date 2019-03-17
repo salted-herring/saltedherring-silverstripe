@@ -13,6 +13,9 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\ORM\DataExtension;
 
+use gorriecoe\Link\Models\Link;
+use gorriecoe\LinkField\LinkField;
+
 class QuoteBlock extends DataExtension
 {
     private static $db = [
@@ -21,8 +24,20 @@ class QuoteBlock extends DataExtension
         'Source'    => 'Text'
     ];
 
+    /**
+     * Has_one relationship
+     * @var array
+     */
+    private static $has_one = [
+        'SourceLink' => Link::class
+    ];
+
     public function updateCMSFields(FieldList $fields)
     {
+        $fields->removeByName([
+            'SourceLinkID'
+        ]);
+
         $fields->addFieldsToTab(
             'Root.Quote',
             [
@@ -37,6 +52,11 @@ class QuoteBlock extends DataExtension
                 TextareaField::create(
                     'Source',
                     'Source'
+                ),
+                LinkField::create(
+                    'SourceLink',
+                    $this->owner->fieldLabel('SourceLink'),
+                    $this->owner
                 )
             ]
         );

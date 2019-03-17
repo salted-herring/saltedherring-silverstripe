@@ -29,6 +29,7 @@ class ImageBlockTypeCreator extends ContentBlockTypeCreator
             ->setDescription('A list of the hero images');
 
         return array_merge(parent::fields(), [
+            'Padding' => ['type' => Type::boolean()],
             'Images' => [
                 'type' => $imgConn->toType(),
                 'args' => $imgConn->args(),

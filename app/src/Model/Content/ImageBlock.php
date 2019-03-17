@@ -21,7 +21,9 @@ class ImageBlock extends ContentBlock
      * Database fields
      * @var array
      */
-    private static $db = [];
+    private static $db = [
+        'Padding' => 'Boolean'
+    ];
 
     /**
      * Has_one relationship
@@ -30,7 +32,7 @@ class ImageBlock extends ContentBlock
     private static $has_one = [];
 
     private static $many_many = [
-        'Images'       => Image::class
+        'Images' => Image::class
     ];
 
     private static $owns = [
@@ -44,6 +46,10 @@ class ImageBlock extends ContentBlock
     ];
 
     private static $table_name = 'ImageBlock';
+
+    private static $field_labels = [
+        'Padding' => 'Add top and bottom padding?'
+    ];
 
     /**
      * CMS Fields

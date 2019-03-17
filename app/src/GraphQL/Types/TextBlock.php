@@ -22,26 +22,27 @@ class TextBlockTypeCreator extends ContentBlockTypeCreator
     public function fields()
     {
         return array_merge(parent::fields(), [
-            'Alignment' => ['type' => Type::string()],
-            'Content' => [
+            'Alignment'  => ['type' => Type::string()],
+            'Content'    => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     return ShortcodeParser::get_active()->parse($obj->Content);
                 }
             ],
-            'ShowQuote' => ['type' => Type::boolean()],
-            'Quote'     => [
+            'ShowQuote'  => ['type' => Type::boolean()],
+            'Quote'      => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     return nl2br($obj->Quote);
                 }
             ],
-            'Source'    => [
+            'Source'     => [
                 'type' => Type::string(),
                 'resolve' => function ($obj, $args, $context) {
                     return nl2br($obj->Source);
                 }
-            ]
+            ],
+            'SourceLink' => ['type' => $this->manager->getType('Link')]
         ]);
     }
 }

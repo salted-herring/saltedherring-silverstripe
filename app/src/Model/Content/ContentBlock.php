@@ -15,6 +15,7 @@ use App\Web\Model\TextBlock;
 use App\Web\Model\VideoBlock;
 
 use SilverStripe\Core\ClassInfo;
+use SilverStripe\Core\Config\Configurable;
 use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
 use SilverStripe\GraphQL\Scaffolding\Scaffolders\SchemaScaffolder;
 use SilverStripe\ORM\DataObject;
@@ -25,6 +26,8 @@ use GraphQL\Type\Definition\ResolveInfo;
 
 class ContentBlock extends DataObject
 {
+    use Configurable;
+
     /**
      * Database fields
      * @var array
@@ -51,6 +54,25 @@ class ContentBlock extends DataObject
      * @var array
      */
     private static $defaults = [];
+
+    /**
+     * Defines summary fields commonly used in table columns
+     * as a quick overview of the data for this dataobject
+     * @var array
+     */
+    private static $summary_fields = [
+        'Title' => 'Title',
+        'Type' => 'Type'
+    ];
+
+    private static $field_labels = [
+        'getType' => 'Type'
+    ];
+
+    /**
+     * @config
+     */
+    private static $pagination_limit = 20;
 
     private static $versioned_gridfield_extensions = true;
     private static $table_name = 'ContentBlock';
@@ -81,17 +103,6 @@ class ContentBlock extends DataObject
         return $result;
     }
 
-    // public function provideGraphQLScaffolding(SchemaScaffolder $scaffolder)
-    // {
-    //     $scaffolder
-    //         ->type(ContentBlock::class)
-    //             ->addFields(['ID', 'Title', 'SortOrder'])
-    //             ->operation(SchemaScaffolder::READ)
-    //                 ->end()
-    //             ->end();
-    //
-    //     return $scaffolder;
-    // }
     public function canView($member = null, $context = [])
     {
         return true;
@@ -107,5 +118,13 @@ class ContentBlock extends DataObject
     public function canDelete($member = null, $context = [])
     {
         return true;
+    }
+
+    public static function getPaginationLimit() {
+        return self::config()->get('pagination_limit');
+    }
+
+    public function getType() {
+        return $this->singular_name();
     }
 }

@@ -21,6 +21,7 @@ use SilverStripe\Forms\GridField\GridField;
 use SilverStripe\Forms\GridField\GridFieldAddExistingAutocompleter;
 use SilverStripe\Forms\GridField\GridFieldAddNewButton;
 use SilverStripe\Forms\GridField\GridFieldConfig_RelationEditor;
+use SilverStripe\Forms\GridField\GridFieldPaginator;
 use SilverStripe\Forms\HTMLEditor\HtmlEditorField;
 use SilverStripe\Forms\TextareaField;
 use SilverStripe\GraphQL\Scaffolding\Interfaces\ScaffoldingProvider;
@@ -168,7 +169,7 @@ class Project extends Page implements ScaffoldingProvider
             $fields->addFieldsToTab(
                 'Root.Blocks',
                 [
-                    GridField::create(
+                    $blocksGrid = GridField::create(
                         'ContentBlocks',
                         'Content Blocks',
                         $this->ContentBlocks(),
@@ -183,6 +184,11 @@ class Project extends Page implements ScaffoldingProvider
                     )
                 ]
             );
+
+            $pagination = $blocksGrid->getConfig()
+                            ->getComponentByType(GridFieldPaginator::class);
+
+            $pagination->setItemsPerPage(ContentBlock::getPaginationLimit());
 
             $multi->setClasses([
                 TextBlock::class,

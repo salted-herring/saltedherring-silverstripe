@@ -45,4 +45,14 @@ class TextBlock extends ContentBlock
         $this->extend('updateCMSFields', $fields);
         return $fields;
     }
+
+    public function getType() {
+        $type = $this->singular_name();
+
+        if ($this->ShowQuote) {
+            $type .= ' (includes a quote)';
+        }
+
+        return $type;
+    }
 }
