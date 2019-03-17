@@ -33,6 +33,7 @@ SilverStripe\GraphQL\Manager:
         PeoplePage: 'App\Web\GraphQL\Types\PeoplePageTypeCreator'
         Person: 'App\Web\GraphQL\Types\PersonPageTypeCreator'
         Project: 'App\Web\GraphQL\Types\ProjectPageTypeCreator'
+        Redirection: 'App\Web\GraphQL\Types\RedirectionTypeCreator'
         SaltedCroppableImage: 'App\Web\GraphQL\Types\SaltedCroppableImageTypeCreator'
         TextBlock: 'App\Web\GraphQL\Types\TextBlockTypeCreator'
         VideoBlock: 'App\Web\GraphQL\Types\VideoBlockTypeCreator'
@@ -49,6 +50,7 @@ SilverStripe\GraphQL\Manager:
         readPeoplePage: 'App\Web\GraphQL\Queries\ReadPeoplePageQueryCreator'
         readPerson: 'App\Web\GraphQL\Queries\ReadPersonPageQueryCreator'
         readProject: 'App\Web\GraphQL\Queries\ReadProjectPageQueryCreator'
+        readRedirector: 'App\Web\GraphQL\Queries\RedirectorQueryCreator'
         readSaltedCroppableImage: 'App\Web\GraphQL\Queries\ReadSaltedCroppableImageQueryCreator'
         readWorkPage: 'App\Web\GraphQL\Queries\ReadWorkPageQueryCreator'
       scaffolding:
