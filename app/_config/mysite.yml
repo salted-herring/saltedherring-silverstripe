@@ -23,5 +23,8 @@ Project_RelatedProjects:
 HomePage_Latest:
   default_sort: '"HomePage_Latest"."SortOrder" ASC'
 
+PeoplePage_Latest:
+  default_sort: '"PeoplePage_Latest"."SortOrder" ASC'
+
 App\Web\Model\ContentBlock:
   pagination_limit: 100

@@ -83,7 +83,7 @@ class HeroExtension extends DataExtension
                     'Menu Colour',
                     singleton(get_class($this->owner))->dbObject('HeroMenuColour')->enumValues()
                 )
-                ->setDescription('If the header needs to use hte white menu, shoose that here.'),
+                ->setDescription('If the header needs to use the white menu, choose that here.'),
                 ColorPaletteField::create(
                     'BackgroundColourID',
                     'Hero Background Colour',

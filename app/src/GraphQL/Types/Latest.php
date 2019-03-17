@@ -20,6 +20,7 @@ class LatestTypeCreator extends TypeCreator
     {
         return [
             'ID'            => ['type' => Type::id()],
+            'SortOrder'     => ['type' => Type::int()],
             'Title'         => ['type' => Type::string()],
             'SummaryText'      => [
                 'type' => Type::string(),
