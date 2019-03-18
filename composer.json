@@ -20,7 +20,7 @@
         "mollie/polyfill-libsodium": "^1.1",
         "salted-herring/salted-cropper": "dev-feature/ss4-upgrade",
         "silverstripe-themes/simple": "~3.2.0",
-        "silverstripe/graphql": "3.x-dev as 3.0.0",
+        "silverstripe/graphql": "3.x-dev#25f1b17 as 3.0.0",
         "silverstripe/graphql-devtools": "^1.0@dev",
         "silverstripe/lumberjack": "^2.0",
         "silverstripe/recipe-cms": "~4.3.0",

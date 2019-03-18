@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "eaef6fe9c9bf0aeeba8e4845199f65af",
+    "content-hash": "558be86e841a09f6adfa21e5da06fa2f",
     "packages": [
         {
             "name": "axllent/silverstripe-form-fields",
@@ -2353,12 +2353,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/silverstripe/silverstripe-graphql.git",
-                "reference": "25f1b17975fa9d11c2c9811294a3e0b018476cf9"
+                "reference": "25f1b17"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/25f1b17975fa9d11c2c9811294a3e0b018476cf9",
-                "reference": "25f1b17975fa9d11c2c9811294a3e0b018476cf9",
+                "url": "https://api.github.com/repos/silverstripe/silverstripe-graphql/zipball/25f1b17",
+                "reference": "25f1b17",
                 "shasum": ""
             },
             "require": {
