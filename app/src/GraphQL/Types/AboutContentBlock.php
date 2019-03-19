@@ -55,7 +55,8 @@ class AboutContentBlockTypeCreator extends TypeCreator
                 'resolve' => function ($obj, $args, $context) {
                     return nl2br($obj->Source);
                 }
-            ]
+            ],
+            'SourceLink' => ['type' => $this->manager->getType('Link')]
         ];
     }
 }
