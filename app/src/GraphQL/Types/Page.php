@@ -49,6 +49,7 @@ class PageTypeCreator extends TypeCreator
                     return ShortcodeParser::get_active()->parse($obj->Content);
                 }
             ],
+            'ClassName'       => ['type' => Type::string()],
             'MetaTitle'       => ['type' => Type::string()],
             'MenuTitle'       => ['type' => Type::string()],
             'Title'           => ['type' => Type::string()],
